@@ -19,8 +19,7 @@ fetch(url)
     if (data[random].user.location !== null) {
       userLocation.textContent = data[random].user.location;
       userLocation.href = `https://unsplash.com/search/${data[random].user.location}`;
-    }
-    else {
+    } else {
       userLocation.remove();
     }
   });
