@@ -21,24 +21,6 @@
 		"oAP": "\/docs\/custom-unsplash-new-tab.crx",
 		"oF": 1
 		},
-	"\/README.md": {
-		"cS": 0,
-		"eF": 1,
-		"eL": 1,
-		"eLB": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 1,
-		"oAP": "\/docs\/README.html",
-		"oF": 1,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
-		},
 	"\/screenshot.png": {
 		"ft": 32768,
 		"iS": 2945158,
@@ -151,9 +133,9 @@
 		},
 	"\/source\/manifest.json": {
 		"ft": 524288,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/docs\/manifest-min.json",
-		"oF": 0,
+		"oF": 1,
 		"oO": 0,
 		"oS": 1
 		}
@@ -167,7 +149,7 @@
 	"displayValue": "custom-unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 506377753
+	"lastBuiltDate": 506378083
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
