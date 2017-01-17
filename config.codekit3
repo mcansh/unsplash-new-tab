@@ -134,8 +134,8 @@
 	"\/source\/manifest.json": {
 		"ft": 524288,
 		"oA": 2,
-		"oAP": "\/docs\/manifest-min.json",
-		"oF": 1,
+		"oAP": "\/docs\/manifest.json",
+		"oF": 3,
 		"oO": 0,
 		"oS": 1
 		}
@@ -149,7 +149,7 @@
 	"displayValue": "custom-unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 506378083
+	"lastBuiltDate": 506378151
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
