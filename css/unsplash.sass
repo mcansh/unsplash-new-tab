@@ -16,8 +16,12 @@ main
   height: 100vh
   width: 100vw
   background:
+    color: #111
     position: center
     size: cover
+
+a
+  text-decoration: none
 
 header
   height: 5em
@@ -31,14 +35,16 @@ header
   right: 0
   #logo
     flex-grow: 1
+    &:hover
+      svg g g
+        fill: white
     svg
-      +size(40px)
+      +size(32px)
       g g
         fill: rgba(white, 0.8)
+        transition: 300ms all ease-in-out
   #download
-    text:
-      transform: uppercase
-      decoration: none
+    text-transform: uppercase
     display: flex
     justify-content: center
     align-items: center
@@ -47,9 +53,37 @@ header
     color: #777
     transition: 300ms all ease-in-out
     border: 1px solid transparent
-    border-radius: 3px
+    border-radius: 6px
     height: 32px
     padding: 0 10px
     font:
       size: 11px
       weight: 700
+    &:hover
+      background: white
+
+
+footer
+  display: flex
+  align-items: center
+  position: absolute
+  padding: 20px
+  bottom: 0
+  left: 0
+  right: 0
+  font-family: Courier, monospace
+  #profile
+    border-radius: 50%
+    +size(32px)
+    margin-right: 10px
+    background:
+      size: cover
+      position: center
+
+  #name, #location
+    color: white
+    display: block
+
+  #location
+    font-size: 11px
+    margin-top: 5px

@@ -12,13 +12,19 @@ html(lang="en")
     link(href="css/unsplash.css" rel="stylesheet")
   body
     header
-      #logo
+      a#logo(href="https://unsplash.com")
         include img/unsplash.svg
         
       a#download(download href="")
         span Download
         
     main
+    
+    footer
+      #profile(style="background-image: url()")
+      .user-info
+        a#name(href="") Name
+        a#location(href="") Location
         
         
     script(src='js/unsplash.min.js')
