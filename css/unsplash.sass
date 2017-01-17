@@ -1,0 +1,55 @@
+@import "normalize"
+@import "bourbon"
+@import "systemfonts"
+
+*
+  margin: 0
+  box-sizing: border-box
+
+
+body
+  width: 100vw
+  height: 100vh
+  font-family: $font
+
+main
+  height: 100vh
+  width: 100vw
+  background:
+    position: center
+    size: cover
+
+header
+  height: 5em
+  padding: 20px
+  display: flex
+  flex-direction: row
+  align-items: center
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  #logo
+    flex-grow: 1
+    svg
+      +size(40px)
+      #365-photos-later
+        fill: rgba(white, .7)
+  #download
+    text:
+      transform: uppercase
+      decoration: none
+    display: flex
+    justify-content: center
+    align-items: center
+    background: rgba(white, 0.8)
+    box-shadow: 0 1px 1px rgba(black, 0.04)
+    color: #777
+    transition: 300ms all ease-in-out
+    border: 1px solid transparent
+    border-radius: 3px
+    height: 32px
+    padding: 0 10px
+    font:
+      size: 11px
+      weight: 700

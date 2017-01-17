@@ -1,0 +1,20 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "js/background.js" ]
+   },
+   "chrome_url_overrides": {
+      "newtab": "app.html"
+   },
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com http://localhost:35729/livereload.js; object-src 'self'",
+   "description": "My take on the Unsplash Instant Chrome extension.",
+   "homepage_url": "https://github.com/mcansh/custom-unsplash-instant",
+   "icons": {
+      "128": "img/icons/icon128.png"
+   },
+   "manifest_version": 2,
+   "name": "Custom Unsplash Instant",
+   "permissions": [ "cookies", "storage", "unlimitedStorage", "https://unsplash.com/", "https://proxy.unsplash.com/" ],
+   "update_url": "http://mcan.sh",
+   "version": "1.0"
+}
