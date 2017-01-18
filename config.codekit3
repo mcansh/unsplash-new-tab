@@ -7,7 +7,7 @@
 		"uuidString": "05E8282E-77FA-4225-A024-90F14D5E56A0"
 		}
 	],
-"creatorBuild": "25479",
+"creatorBuild": "25504",
 "files": {
 	"\/.gitignore": {
 		"ft": 8192,
@@ -17,9 +17,33 @@
 		},
 	"\/custom-unsplash-new-tab.crx": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/docs\/custom-unsplash-new-tab.crx",
-		"oF": 1
+		"oF": 0
+		},
+	"\/docs": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/docs\/docs",
+		"oF": 0
+		},
+	"\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/docs\/README.html",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		},
 	"\/screenshot.png": {
 		"ft": 32768,
@@ -68,13 +92,91 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"\/source\/img\/icons\/icon120.png": {
+		"ft": 32768,
+		"iS": 1650,
+		"oA": 0,
+		"oAP": "\/docs\/img\/icons\/icon120.png",
+		"oF": 0,
+		"opt": 1
+		},
 	"\/source\/img\/icons\/icon128.png": {
 		"ft": 32768,
-		"iS": 2613,
+		"iS": 1809,
 		"oA": 0,
 		"oAP": "\/docs\/img\/icons\/icon128.png",
 		"oF": 0,
 		"opt": 1
+		},
+	"\/source\/img\/icons\/icon144.png": {
+		"ft": 32768,
+		"iS": 2071,
+		"oA": 0,
+		"oAP": "\/docs\/img\/icons\/icon144.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/img\/icons\/icon152.png": {
+		"ft": 32768,
+		"iS": 2179,
+		"oA": 0,
+		"oAP": "\/docs\/img\/icons\/icon152.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/img\/icons\/icon195.png": {
+		"ft": 32768,
+		"iS": 3062,
+		"oA": 0,
+		"oAP": "\/docs\/img\/icons\/icon195.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/img\/icons\/icon228.png": {
+		"ft": 32768,
+		"iS": 2726,
+		"oA": 0,
+		"oAP": "\/docs\/img\/icons\/icon228.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/img\/icons\/icon32.png": {
+		"ft": 32768,
+		"iS": 469,
+		"oA": 0,
+		"oAP": "\/docs\/img\/icons\/icon32.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/img\/icons\/icon57.png": {
+		"ft": 32768,
+		"iS": 776,
+		"oA": 0,
+		"oAP": "\/docs\/img\/icons\/icon57.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/img\/icons\/icon72.png": {
+		"ft": 32768,
+		"iS": 937,
+		"oA": 0,
+		"oAP": "\/docs\/img\/icons\/icon72.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/img\/icons\/icon96.png": {
+		"ft": 32768,
+		"iS": 1320,
+		"oA": 0,
+		"oAP": "\/docs\/img\/icons\/icon96.png",
+		"oF": 0,
+		"opt": 1
+		},
+	"\/source\/img\/icons\/unsplash-favicon.ico": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/img\/icons\/unsplash-favicon.ico",
+		"oF": 0
 		},
 	"\/source\/img\/like-icon.svg": {
 		"ft": 2097152,
@@ -122,15 +224,6 @@
 		"sC": 3,
 		"tS": 1
 		},
-	"\/source\/js\/unsplash.min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/docs\/js\/unsplash.min.min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
 	"\/source\/manifest.json": {
 		"ft": 524288,
 		"oA": 2,
@@ -149,7 +242,7 @@
 	"displayValue": "custom-unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 506378151
+	"lastBuiltDate": 506394875
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -797,6 +890,10 @@
 			"active": 0,
 			"optionString": ""
 			},
+		"no-await-in-loop": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-bitwise": {
 			"active": 0,
 			"optionString": "{'allow': ['~'], 'int32Hint': true}"
@@ -1336,6 +1433,10 @@
 		"prefer-const": {
 			"active": 0,
 			"optionString": "{'destructuring': 'any', 'ignoreReadBeforeAssign': false}"
+			},
+		"prefer-destructuring": {
+			"active": 0,
+			"optionString": "{'array': true, 'object': true}, {'enforceForRenamedProperties': false}"
 			},
 		"prefer-numeric-literals": {
 			"active": 0,
