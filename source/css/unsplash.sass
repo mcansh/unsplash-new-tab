@@ -6,6 +6,7 @@
   margin: 0
   box-sizing: border-box
 
+$like: #f15151
 
 body
   width: 100vw
@@ -24,8 +25,8 @@ a
   text-decoration: none
 
 header
-  height: 5em
-  padding: 20px
+  height: 4em
+  padding: 0 20px
   display: flex
   flex-direction: row
   align-items: center
@@ -43,7 +44,7 @@ header
       g g
         fill: rgba(white, 0.8)
         transition: 300ms all ease-in-out
-  #download
+  .button
     text-transform: uppercase
     display: flex
     justify-content: center
@@ -54,20 +55,92 @@ header
     transition: 300ms all ease-in-out
     border: 1px solid transparent
     border-radius: 6px
-    height: 32px
-    padding: 0 10px
+    max-height: 32px
+    padding: 8.5px 10px
+    margin-right: 10px
     font:
       size: 11px
       weight: 700
+    svg
+      +size(15px)
+      fill: #777
+      &.icon-btn--like
+        fill: $like
+        +size(15px)
+        margin-right: 5px
+      .icon-btn--dots
     &:hover
       background: white
+    &:last-of-type
+      margin-right: 0px
 
+#download
+  span
+    display: block
+  svg
+    display: none
+  @media (max-width: 770px)
+    span
+      display: none
+    svg
+      display: block
+
+
+#like.liked
+  background: $like
+  color: white
+  svg
+    fill: white
+
+.popover
+  position: absolute
+  top: 4em
+  right: 20px
+  border-radius: 3px
+  padding: 15px 20px
+  text-align: right
+  background: rgba(black,0.9)
+  color: white
+  opacity: 0
+  visibility: hidden
+  transition: 300ms all cubic-bezier(0, 3.16, 0.58, 1), opacity 100ms ease-in-out
+  transform: scale3d(0.8,0.8,0.8)
+  pointer-events: none
+  &.is-visible
+    pointer-events: auto
+    opacity: 1
+    visibility: visible
+    transform: scale3d(1,1,1)
+  &::before
+    position: absolute
+    top: -5px
+    background: rgba(black,0.9)
+    right: 15px
+    +size(10px)
+    transform: rotate(45deg)
+    content: ''
+  ul
+    list-style: none
+    padding-left: 0
+    padding: 4px 3px 5px
+    font-size: 14px
+    li
+      margin-bottom: 15px
+      &:last-of-type
+        margin-bottom: 0
+    a
+      color: white
+      transition: 300ms all ease-in-out
+      display: block
+      &:hover
+        color: #999
 
 footer
+  height: 4em
   display: flex
   align-items: center
   position: absolute
-  padding: 20px
+  padding: 0 20px
   bottom: 0
   left: 0
   right: 0

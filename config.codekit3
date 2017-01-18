@@ -82,10 +82,20 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/source\/img\/download.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 1,
+		"oAP": "\/docs\/img\/download.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"\/source\/img\/elipsis.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/docs\/img\/elipsis.svg",
 		"oF": 0,
 		"opt": 0,
@@ -181,7 +191,7 @@
 	"\/source\/img\/like-icon.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/docs\/img\/like-icon.svg",
 		"oF": 0,
 		"opt": 0,

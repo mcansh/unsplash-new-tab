@@ -2,8 +2,8 @@
   # "extends": "airbnb-base",
   "env": {
     "browser": true,
-    "node": true,
-    "jquery": true
+    "jquery": true,
+    "es6": true,
   },
   "rule": {
     "no-unused-vars": 1,

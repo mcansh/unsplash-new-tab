@@ -22,18 +22,30 @@ html(lang="en")
     link(rel="apple-touch-icon-precomposed" href="img/icons/icon57.png")
   body
     header
-      a#logo(href="https://unsplash.com")
-        include img/unsplash.svg
-        
-      a#download(download href="")
+      #logo
+        a(href="https://unsplash.com")
+          include img/unsplash.svg
+
+      a.button#like(href="")
+        include img/like-icon.svg
+        span Like
+      a.button#download(download href="")
+        include img/download.svg
         span Download
-        
+      a.button#more(href="#")
+        include img/elipsis.svg
+      .popover
+        ul
+          li: a(href="https://github.com/mcansh/unsplash-new-tab" target="_blank") View Project on GitHub
+          li: a(href="https://unsplash.com" target="_blank") Checkout Unsplash
+          li: a#view(href="" target="_blank") View Photo on Unsplash
+
     main
-    
+
     footer
       #profile(style="background-image: url()")
       .user-info
         a#name(href="") Name
         a#location(href="") Location
-        
+
     script(src='js/unsplash.min.js')
