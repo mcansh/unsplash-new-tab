@@ -13,7 +13,7 @@ let photoId;
 
 fetch(url)
   .then(blob => blob.json())
-  .then(function image(data) {
+  .then((data) => {
     main.style.backgroundColor = data.color;
     main.style.backgroundImage = `url(${data.urls.full})`;
 
