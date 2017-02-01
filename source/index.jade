@@ -8,9 +8,10 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="description" content="Unofficial Unsplash extension for Google Chrome")
     meta(name="author" content="Logan McAnsh")
-    meta(name="robots" content="index, follow")
-    link(href="css/unsplash.css" rel="stylesheet")
+    link(rel="stylesheet" href="css/unsplash.css")
     link(rel="shortcut icon" href="img/icons/icon32.png" sizes="32x32")
+    
+    // Apple Specific Icons
     link(rel="apple-touch-icon-precomposed" sizes="228x228" href="img/icons/icon228.png")
     link(rel="apple-touch-icon-precomposed" sizes="195x195" href="img/icons/icon195.png")
     link(rel="apple-touch-icon-precomposed" sizes="152x152" href="img/icons/icon152.png")
@@ -20,6 +21,13 @@ html(lang="en")
     link(rel="apple-touch-icon-precomposed" sizes="96x96" href="img/icons/icon96.png")
     link(rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/icon72.png")
     link(rel="apple-touch-icon-precomposed" href="img/icons/icon57.png")
+    
+    // Twitter Card
+    meta(name="twitter:card" content="summary")
+    meta(name="twitter:site" content="@logansmcansh")
+    meta(name="twitter:title" content="Unsplash Instant")
+    meta(name="twitter:description" content="Unsplash New Tab by @logansmcansh")
+    meta(name="twitter:image" content="img/icons/icon228.png")
   body
     header
       #logo
@@ -28,7 +36,7 @@ html(lang="en")
 
       a.button#like(href="")
         include img/like-icon.svg
-        span Like
+        span Login
       a.button#download(download href="")
         include img/download.svg
         span Download
@@ -45,7 +53,7 @@ html(lang="en")
     footer
       #profile(style="background-image: url()")
       .user-info
-        a#name(href="") Name
-        a#location(href="") Location
+        a#name(href="")
+        a#location(href="")
 
     script(src='js/unsplash.min.js')

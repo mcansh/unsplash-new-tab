@@ -9,6 +9,12 @@
 	],
 "creatorBuild": "25504",
 "files": {
+	"\/.eslintrc": {
+		"ft": 8192,
+		"oA": 1,
+		"oAP": "\/docs\/.eslintrc",
+		"oF": 1
+		},
 	"\/.gitignore": {
 		"ft": 8192,
 		"oA": 1,
@@ -26,6 +32,12 @@
 		"oA": 1,
 		"oAP": "\/docs\/docs",
 		"oF": 0
+		},
+	"\/node_modules": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/docs\/node_modules",
+		"oF": 1
 		},
 	"\/README.md": {
 		"cS": 0,
@@ -52,12 +64,6 @@
 		"oAP": "\/docs\/screenshot.png",
 		"oF": 1,
 		"opt": 1
-		},
-	"\/source\/.eslintrc": {
-		"ft": 8192,
-		"oA": 1,
-		"oAP": "\/docs\/.eslintrc",
-		"oF": 1
 		},
 	"\/source\/css\/unsplash.css": {
 		"aP": 0,
@@ -249,7 +255,7 @@
 	},
 "projectAttributes": {
 	"creationDate": 506303622,
-	"displayValue": "custom-unsplash-new-tab",
+	"displayValue": "unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
 	"lastBuiltDate": 506394875
@@ -648,7 +654,7 @@
 			"flagValue": -1
 			}
 		},
-	"esLintConfigFileHandlingType": 1,
+	"esLintConfigFileHandlingType": 2,
 	"esLintECMAVersion": 7,
 	"esLintEnvironmentsMask": 8209,
 	"esLintRules": {

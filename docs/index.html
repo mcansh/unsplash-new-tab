@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Unofficial Unsplash extension for Google Chrome">
     <meta name="author" content="Logan McAnsh">
-    <meta name="robots" content="index, follow">
-    <link href="css/unsplash.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/unsplash.css">
     <link rel="shortcut icon" href="img/icons/icon32.png" sizes="32x32">
+    <!-- Apple Specific Icons-->
     <link rel="apple-touch-icon-precomposed" sizes="228x228" href="img/icons/icon228.png">
     <link rel="apple-touch-icon-precomposed" sizes="195x195" href="img/icons/icon195.png">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/icons/icon152.png">
@@ -20,6 +20,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="96x96" href="img/icons/icon96.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/icon72.png">
     <link rel="apple-touch-icon-precomposed" href="img/icons/icon57.png">
+    <!-- Twitter Card-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@logansmcansh">
+    <meta name="twitter:title" content="Unsplash Instant">
+    <meta name="twitter:description" content="Unsplash New Tab by @logansmcansh">
+    <meta name="twitter:image" content="img/icons/icon228.png">
   </head>
   <body>
     <header>
@@ -36,7 +42,7 @@
 </svg></a></div><a id="like" href="" class="button"><svg class="icon-btn icon-btn--like" version="1.1" viewBox="0 0 32 32" width="32" height="32">
   <path d="M17.4 29c-.8.8-2 .8-2.8 0l-12.3-12.8c-3.1-3.1-3.1-8.2 0-11.4 3.1-3.1 8.2-3.1 11.3 0l2.4 2.8 2.3-2.8c3.1-3.1 8.2-3.1 11.3 0 3.1 3.1 3.1 8.2 0 11.4l-12.2 12.8z"></path>
 </svg>
-<span>Like</span></a><a id="download" download href="" class="button"><svg class="Apljk _11dQc _3YIV2 _1Jd5C" version="1.1" viewBox="0 0 32 32" width="32" height="32" aria-labelledby="icon-title-217 icon-desc-218" aria-hidden="false"><path d="M29.8 26.6h-27.6c-.7 0-1.2.6-1.2 1.2v2c0 .6.6 1.2 1.2 1.2h27.6c.7 0 1.2-.6 1.2-1.2v-2c.1-.7-.6-1.2-1.2-1.2zM15.1 23.8c.2.2.6.3.9.3s.7-.1.9-.3l8.8-8.5c.3-.3.4-.6.4-.9 0-.4-.1-.7-.5-1l-1.4-1.3c-.4-.5-1.2-.5-1.7 0l-4.3 4.2v-14.1c0-.6-.5-1.2-1.2-1.2h-2c-.7 0-1.2.6-1.2 1.2v14.1l-4.3-4.2c-.5-.5-1.3-.5-1.7 0l-1.4 1.3c-.4.3-.5.6-.5 1 0 .3.1.6.4.9l8.8 8.5z"></path></svg>
+<span>Login</span></a><a id="download" download href="" class="button"><svg class="Apljk _11dQc _3YIV2 _1Jd5C" version="1.1" viewBox="0 0 32 32" width="32" height="32" aria-labelledby="icon-title-217 icon-desc-218" aria-hidden="false"><path d="M29.8 26.6h-27.6c-.7 0-1.2.6-1.2 1.2v2c0 .6.6 1.2 1.2 1.2h27.6c.7 0 1.2-.6 1.2-1.2v-2c.1-.7-.6-1.2-1.2-1.2zM15.1 23.8c.2.2.6.3.9.3s.7-.1.9-.3l8.8-8.5c.3-.3.4-.6.4-.9 0-.4-.1-.7-.5-1l-1.4-1.3c-.4-.5-1.2-.5-1.7 0l-4.3 4.2v-14.1c0-.6-.5-1.2-1.2-1.2h-2c-.7 0-1.2.6-1.2 1.2v14.1l-4.3-4.2c-.5-.5-1.3-.5-1.7 0l-1.4 1.3c-.4.3-.5.6-.5 1 0 .3.1.6.4.9l8.8 8.5z"></path></svg>
 <span>Download</span></a><a id="more" href="#" class="button"><svg class="icon-btn icon-btn--dots" version="1.1" viewBox="0 0 32 32" width="32" height="32">
   <path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z"></path>
 </svg>
@@ -52,7 +58,7 @@
     <main></main>
     <footer>
       <div id="profile" style="background-image: url()"></div>
-      <div class="user-info"><a id="name" href="">Name</a><a id="location" href="">Location</a></div>
+      <div class="user-info"><a id="name" href=""></a><a id="location" href=""></a></div>
     </footer>
     <script src="js/unsplash.min.js"></script>
   </body>

@@ -1,39 +1,41 @@
 // @codekit-prepend 'tokens.js';
 
-const url = `https://api.unsplash.com/photos/random?client_id=${authToken}`;
+const url = `https://api.unsplash.com/photos/random?&featured&client_id=${authToken}`;
 const main = document.querySelector('main');
 const download = document.querySelector('#download');
 const moreButton = document.querySelector('#more');
 const profile = document.querySelector('#profile');
 const userName = document.querySelector('#name');
 const likePhoto = document.querySelector('#like');
-const userLocation = document.querySelector('#location');
+const photoLocation = document.querySelector('#location');
 const viewOnUnsplash = document.querySelector('#view');
 let photoId;
 
 fetch(url)
   .then(blob => blob.json())
   .then(function image(data) {
+    main.style.backgroundColor = data.color;
+    main.style.backgroundImage = `url(${data.urls.full})`;
+
     photoId = data.id;
     viewOnUnsplash.href = data.links.html;
-    main.style.backgroundColor = data.color;
-    main.style.backgroundImage = `url(${data.urls.raw})`;
     profile.style.backgroundImage = `url(${data.user.profile_image.large})`;
     download.href = data.links.download;
     userName.href = data.user.links.html;
     userName.textContent = data.user.name;
     document.querySelector('#like span').textContent = data.likes;
-    if (data.user.location !== null) {
-      userLocation.textContent = data.user.location;
-      userLocation.href = `https://unsplash.com/search/${data.user.location}`;
+
+    if (data.location !== null) {
+      photoLocation.textContent = data.user.location;
+      photoLocation.href = `https://unsplash.com/search/${data.user.location}`;
     } else {
-      userLocation.remove();
+      photoLocation.remove();
     }
   });
 
 
 function showMore() {
-  document.querySelector('.popover').classList.add('is-visible');
+  document.querySelector('.popover').classList.toggle('is-visible');
 }
 
 function hideMore() {
@@ -44,14 +46,10 @@ function hideMore() {
 moreButton.addEventListener('click', showMore);
 main.addEventListener('click', hideMore);
 
-function likeThePhoto(e) {
-  e.preventDefault();
-  fetch(`https://unsplash.com/photos/${photoId}/like`, {
-    method: 'POST'
-  })
-    .then(function() {
-      likePhoto.href = `https://unsplash.com/photos/${photoId}/like`
-    });
+
+function likeThePhoto(event) {
+  event.preventDefault();
+  likePhoto.href = `https://unsplash.com/photos/${photoId}/like`;
 }
 
 likePhoto.addEventListener('click', likeThePhoto);
