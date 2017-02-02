@@ -212,10 +212,10 @@
 		},
 	"\/source\/js\/bundle.js": {
 		"ft": 64,
-		"mi": 1,
-		"oA": 0,
+		"mi": 0,
+		"oA": 2,
 		"oAP": "\/docs\/js\/bundle.min.js",
-		"oF": 0,
+		"oF": 1,
 		"sC": 0,
 		"tS": 0
 		},

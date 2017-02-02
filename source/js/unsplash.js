@@ -31,7 +31,10 @@ if (accessToken === null || accessToken === undefined) {
 login.href = loginURL;
 
 
-fetch(url)
+fetch(url, {
+  method: 'GET',
+  mode: 'cors',
+})
   .then(blob => blob.json())
   .then((data) => {
     main.style.backgroundColor = data.color;
@@ -71,6 +74,7 @@ function likeThePhoto(event) {
   event.preventDefault();
   fetch(`https://api.unsplash.com/photos/${photoId}/like?access_token=${accessToken}`, {
     method: 'POST',
+    mode: 'cors',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
@@ -82,6 +86,7 @@ function likeThePhoto(event) {
 
   fetch(`https://unsplash.com/photos/${photoId}/stats`, {
     method: 'GET',
+    mode: 'cors',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
@@ -90,13 +95,15 @@ function likeThePhoto(event) {
     .then(blob => blob.json())
     .then((data) => {
       document.querySelector('#like span').textContent = data.likes;
-    });
+    })
+    .catch((err) => { console.error(err); });
 }
 
 function unlikeThePhoto(event) {
   event.preventDefault();
   fetch(`https://api.unsplash.com/photos/${photoId}/like`, {
     method: 'DELETE',
+    mode: 'cors',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
@@ -139,7 +146,8 @@ if (document.location.search.length) {
 
 function logMeIn() {
   fetch(`https://unsplash.com/oauth/token/?client_id=${authToken}&client_secret=${applicationSecret}&redirect_uri=${redirectURI}&code=${code}&grant_type=authorization_code`, {
-    method: 'POST'
+    method: 'POST',
+    mode: 'cors',
   })
   .then(data => data.json())
   .then((data) => {
@@ -153,7 +161,10 @@ function logMeIn() {
 }
 
 function showMe() {
-  fetch(`https://api.unsplash.com/me?accessToken=${accessToken}`)
+  fetch(`https://api.unsplash.com/me?accessToken=${accessToken}`, {
+    mode: 'cors',
+    method: 'GET'
+  })
     .then(blob => blob.json())
     .then((data) => { console.log(data); });
 }
