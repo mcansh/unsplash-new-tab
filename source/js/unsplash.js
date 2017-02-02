@@ -13,6 +13,8 @@ const login = document.querySelector('#login');
 let redirectURI = `http://${window.location.hostname}`;
 if (redirectURI === 'http://mcansh.local') {
   redirectURI = 'http://mcansh.local:5757';
+} else {
+  redirectURI = 'https://mcansh.github.io/unsplash-new-tab/';
 }
 let photoId;
 let code;
@@ -106,7 +108,7 @@ function logMeIn() {
   })
   .then((res) => {
     console.log(res.json());
-  })
+  });
   // .then((resJson) => {
   //   console.log(resJson);
   // });
