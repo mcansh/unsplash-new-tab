@@ -59,6 +59,14 @@
 		"oF": 1,
 		"opt": 1
 		},
+	"\/source\/callback\/index.jade": {
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/docs\/callback\/index.html",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/source\/css\/unsplash.css": {
 		"aP": 0,
 		"bl": 0,

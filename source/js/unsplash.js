@@ -10,9 +10,10 @@ const likePhoto = document.querySelector('#like');
 const photoLocation = document.querySelector('#location');
 const viewOnUnsplash = document.querySelector('#view');
 const login = document.querySelector('#login');
+// lazy way so i dont have to make extra commits changing this back and forth
 let redirectURI = `http://${window.location.hostname}`;
 if (redirectURI === 'http://mcansh.local') {
-  redirectURI = 'http://mcansh.local:5757';
+  redirectURI = 'http://mcansh.local:5757/';
 } else {
   redirectURI = 'https://mcansh.github.io/unsplash-new-tab/';
 }
@@ -56,9 +57,9 @@ main.addEventListener('click', hideMore);
 
 
 function likeThePhoto(event) {
-  event.preventDefault();
   likePhoto.href = `https://unsplash.com/photos/${photoId}/like`;
-  this.classList.toggle('liked');
+  // this.classList.toggle('liked');
+  event.preventDefault();
 }
 
 likePhoto.addEventListener('click', likeThePhoto);
@@ -90,28 +91,15 @@ if (document.location.search.length) {
 }
 
 function logMeIn() {
-  fetch('https://unsplash.com/oauth/token', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Origin: `${redirectURI}`,
-      Host: 'api.unsplash.com'
-    },
-    body: JSON.stringify({
-      client_id: `${authToken}`,
-      client_secret: `${applicationSecret}`,
-      redirect_uri: `${redirectURI}`,
-      code: `${code}`,
-      grant_type: 'authorization_code'
-    })
+  fetch(`https://unsplash.com/oauth/token/?client_id=${authToken}&client_secret=${applicationSecret}&redirect_uri=${redirectURI}&code=${code}&grant_type=authorization_code`, {
+    method: 'POST'
   })
   .then((res) => {
     console.log(res.json());
+  })
+  .then((resJson) => {
+    console.log(resJson);
   });
-  // .then((resJson) => {
-  //   console.log(resJson);
-  // });
 
   if (Response.ok) {
     fetch('https://api.unsplash.com/me')
