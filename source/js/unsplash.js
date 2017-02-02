@@ -10,8 +10,6 @@ const likePhoto = document.querySelector('#like');
 const photoLocation = document.querySelector('#location');
 const viewOnUnsplash = document.querySelector('#view');
 const login = document.querySelector('#login');
-const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes`;
-
 // lazy way so i dont have to make extra commits changing this back and forth
 let redirectURI = `http://${window.location.hostname}`;
 if (redirectURI === 'http://mcansh.local') {
@@ -22,6 +20,8 @@ if (redirectURI === 'http://mcansh.local') {
 let photoId;
 let code;
 let accessToken = localStorage.getItem('accessToken');
+const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes`;
+
 
 fetch(url)
   .then(blob => blob.json())
