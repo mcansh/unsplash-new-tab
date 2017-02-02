@@ -10,7 +10,10 @@ const likePhoto = document.querySelector('#like');
 const photoLocation = document.querySelector('#location');
 const viewOnUnsplash = document.querySelector('#view');
 const login = document.querySelector('#login');
-const redirectURI = 'http://mcansh.local:5757';
+let redirectURI = `http://${window.location.hostname}`;
+if (redirectURI === 'http://mcansh.local') {
+  redirectURI = 'http://mcansh.local:5757';
+}
 let photoId;
 let code;
 
