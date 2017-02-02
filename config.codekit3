@@ -27,6 +27,12 @@
 		"oAP": "\/docs\/docs",
 		"oF": 0
 		},
+	"\/npm-debug.log": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/npm-debug.log",
+		"oF": 0
+		},
 	"\/README.md": {
 		"cS": 0,
 		"eF": 1,
@@ -227,8 +233,14 @@
 		},
 	"\/source\/js\/node_modules": {
 		"ft": 65536,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/docs\/js\/node_modules",
+		"oF": 1
+		},
+	"\/source\/js\/npm-debug.log": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/js\/npm-debug.log",
 		"oF": 0
 		},
 	"\/source\/js\/package.json": {
@@ -284,7 +296,7 @@
 	"displayValue": "unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 507715895
+	"lastBuiltDate": 507718878
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

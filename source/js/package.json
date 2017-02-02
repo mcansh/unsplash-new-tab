@@ -4,6 +4,7 @@
   "description": "remade the unsplash new tab chrome extension.",
   "main": "unsplash.js",
   "dependencies": {},
+  "babel-polyfill": "^6.22.0",
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
@@ -18,14 +19,12 @@
     "build": "webpack --progress --colors --watch",
     "help": "webpack --display-error-details"
   },
-  "author": "",
+  "author": "Logan McAnsh",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mcansh/unsplash-new-tab.git"
   },
-  "author": "Logan McAnsh",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/mcansh/unsplash-new-tab/issues"
   },

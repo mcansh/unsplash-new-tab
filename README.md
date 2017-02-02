@@ -4,7 +4,7 @@ remade the unsplash new tab chrome extension.
 
 mostly made for a blog post on Learn.co
 
-uses the fetch api which is currently available in Chrome and Safari (10.1+)
+uses the fetch api which is currently available in Chrome and Safari (10.1+), but polyfilled just in case.
 
 ## The Set Up
 1. install node modules: `$ npm --prefix ./source/js install ./source/js`

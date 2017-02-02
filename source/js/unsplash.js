@@ -1,3 +1,4 @@
+// import 'babel-polyfill';
 import { authToken, applicationSecret } from './tokens';
 
 const url = `https://api.unsplash.com/photos/random?&featured&client_id=${authToken}`;
