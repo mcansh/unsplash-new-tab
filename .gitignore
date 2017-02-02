@@ -5,6 +5,7 @@
 ### JavaScript ###
 */tokens.js
 *.js.map
+node_modules
 
 
 ### OSX ###

@@ -1,0 +1,33 @@
+{
+  "name": "unsplash-new-tab",
+  "version": "1.5.0",
+  "description": "remade the unsplash new tab chrome extension.",
+  "main": "unsplash.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "webpack": "^2.2.1",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "scripts": {
+    "build": "webpack --progress --colors --watch",
+    "help": "webpack --display-error-details"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcansh/unsplash-new-tab.git"
+  },
+  "author": "Logan McAnsh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcansh/unsplash-new-tab/issues"
+  },
+  "homepage": "https://github.com/mcansh/unsplash-new-tab#readme"
+}

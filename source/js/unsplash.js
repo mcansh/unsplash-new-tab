@@ -1,4 +1,4 @@
-// @codekit-prepend 'tokens.js';
+import { authToken, applicationSecret } from './tokens';
 
 const url = `https://api.unsplash.com/photos/random?&featured&client_id=${authToken}`;
 const main = document.querySelector('main');
@@ -10,7 +10,9 @@ const likePhoto = document.querySelector('#like');
 const photoLocation = document.querySelector('#location');
 const viewOnUnsplash = document.querySelector('#view');
 const login = document.querySelector('#login');
+
 // lazy way so i dont have to make extra commits changing this back and forth
+// But i still do have to change the callback on Unsplash back and forth 🙄
 let redirectURI = `http://${window.location.hostname}`;
 if (redirectURI === 'http://mcansh.local') {
   redirectURI = 'http://mcansh.local:5757/';
@@ -21,6 +23,12 @@ let photoId;
 let code;
 let accessToken = localStorage.getItem('accessToken');
 const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes`;
+
+if (accessToken === null || accessToken === undefined) {
+  likePhoto.href = loginURL;
+}
+
+login.href = loginURL;
 
 
 fetch(url)
@@ -59,22 +67,51 @@ moreButton.addEventListener('click', showMore);
 main.addEventListener('click', hideMore);
 
 
-function likeThePhoto() {
+function likeThePhoto(event) {
+  event.preventDefault();
   fetch(`https://api.unsplash.com/photos/${photoId}/like?access_token=${accessToken}`, {
-    method: 'POST'
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
   })
   .then(() => {
     likePhoto.classList.add('liked');
   });
+
+  fetch(`https://unsplash.com/photos/${photoId}/stats`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(blob => blob.json())
+    .then((data) => {
+      document.querySelector('#like span').textContent = data.likes;
+    });
 }
 
-likePhoto.addEventListener('click', likeThePhoto);
-
-if (accessToken === null || accessToken === undefined) {
-  likePhoto.href = loginURL;
+function unlikeThePhoto(event) {
+  event.preventDefault();
+  fetch(`https://api.unsplash.com/photos/${photoId}/like`, {
+    method: 'DELETE',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(() => {
+    likePhoto.classList.remove('liked');
+  });
 }
 
-login.href = loginURL;
+if (likePhoto.classList.contains('liked')) {
+  likePhoto.addEventListener('click', unlikeThePhoto);
+} else {
+  likePhoto.addEventListener('click', likeThePhoto);
+}
 
 if (document.location.search.length) {
   const urlEnc = window.location.search;
@@ -106,18 +143,17 @@ function logMeIn() {
   })
   .then(data => data.json())
   .then((data) => {
-    window.accessToken = data.access_token;
+    accessToken = data.access_token;
     localStorage.setItem('accessToken', accessToken);
+    redirectMe();
   })
   .catch((err) => {
     console.error(err);
   });
-
-  redirectMe();
 }
 
 function showMe() {
-  fetch('https://api.unsplash.com/me')
+  fetch(`https://api.unsplash.com/me?accessToken=${accessToken}`)
     .then(blob => blob.json())
     .then((data) => { console.log(data); });
 }
