@@ -2,7 +2,7 @@ import { $ } from './bling';
 // import 'babel-polyfill';
 import { authToken, applicationSecret } from './tokens';
 
-const url = `https://api.unsplash.com/photos/random?&query=desks&featured&client_id=${authToken}`;
+const url = `https://api.unsplash.com/photos/random?&featured&client_id=${authToken}`;
 const main = $('main');
 const download = $('#download');
 const moreButton = $('#more');

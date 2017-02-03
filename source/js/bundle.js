@@ -116,7 +116,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // import 'babel-polyfill';
 
 
-var url = 'https://api.unsplash.com/photos/random?&query=desks&featured&client_id=' + __WEBPACK_IMPORTED_MODULE_1__tokens__["a" /* authToken */];
+var url = 'https://api.unsplash.com/photos/random?&featured&client_id=' + __WEBPACK_IMPORTED_MODULE_1__tokens__["a" /* authToken */];
 var main = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__bling__["a" /* $ */])('main');
 var download = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__bling__["a" /* $ */])('#download');
 var moreButton = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__bling__["a" /* $ */])('#more');
