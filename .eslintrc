@@ -1,13 +1,18 @@
 {
   "extends": "airbnb-base",
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "env": {
     "browser": true,
     "node": true,
-    "jquery": true
+    "jquery": true,
+    # "es6": true,
   },
   "rules": {
     "no-unused-vars": 1,
     "comma-dangle": 0,
-    "no-console": 0
+    "no-console": 0,
+    "import/no-mutable-exports": 0
   }
 }

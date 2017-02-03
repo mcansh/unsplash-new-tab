@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+
 const nodeEnv = process.env.NODE_ENV || 'production';
 
 module.exports = {
@@ -23,14 +24,14 @@ module.exports = {
   },
   plugins: [
     // uglify js
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false },
-      output: { comments: false },
-      sourceMap: true
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: { warnings: false },
+    //   output: { comments: false },
+    //   sourceMap: true
+    // }),
     // env plugin
     new webpack.DefinePlugin({
-      'proccess.env': { NODE_ENV: JSON.stringify(nodeEnv)}
+      'proccess.env': { NODE_ENV: JSON.stringify(nodeEnv) }
     })
   ]
-}
+};
