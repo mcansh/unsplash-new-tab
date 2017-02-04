@@ -13,6 +13,9 @@ body
   height: 100vh
   font-family: $font
 
+input
+  font-family: $font
+
 main
   height: 100vh
   width: 100vw
@@ -34,45 +37,45 @@ header
   top: 0
   left: 0
   right: 0
-  #logo
-    flex-grow: 1
-    &:hover
-      svg g g
-        fill: white
-    svg
-      +size(32px)
-      g g
-        fill: rgba(white, 0.8)
-        transition: 300ms all ease-in-out
-  .button
-    text-transform: uppercase
-    display: flex
-    justify-content: center
-    align-items: center
-    background: rgba(white, 0.8)
-    box-shadow: 0 1px 1px rgba(black, 0.04)
-    color: #777
-    transition: 300ms all ease-in-out
-    border: 1px solid transparent
-    border-radius: 6px
-    max-height: 32px
-    padding: 8.5px 10px
-    margin-right: 10px
-    font:
-      size: 11px
-      weight: 700
-    svg
+#logo
+  flex-grow: 1
+  &:hover
+    svg g g
+      fill: white
+  svg
+    +size(32px)
+    g g
+      fill: rgba(white, 0.8)
+      transition: 300ms all ease-in-out
+.button
+  text-transform: uppercase
+  display: flex
+  justify-content: center
+  align-items: center
+  background: rgba(white, 0.8)
+  box-shadow: 0 1px 1px rgba(black, 0.04)
+  color: #777
+  transition: 300ms all ease-in-out
+  border: 1px solid transparent
+  border-radius: 6px
+  max-height: 32px
+  padding: 8.5px 10px
+  margin-right: 10px
+  font:
+    size: 11px
+    weight: 700
+  svg
+    +size(15px)
+    fill: #777
+    &.icon-btn--like
+      fill: $like
       +size(15px)
-      fill: #777
-      &.icon-btn--like
-        fill: $like
-        +size(15px)
-        margin-right: 5px
-      .icon-btn--dots
-    &:hover
-      background: white
-    &:last-of-type
-      margin-right: 0px
+      margin-right: 5px
+    .icon-btn--dots
+  &:hover
+    background: white
+  &:last-of-type
+    margin-right: 0px
 
 #download
   span
@@ -160,3 +163,89 @@ footer
   #location
     font-size: 11px
     margin-top: 5px
+
+  .settings
+    flex-grow: 1
+    text-align: right
+    .button
+      display: inline-block
+
+#modal
+  visibility: hidden
+  opacity: 0
+  display: none
+  pointer-events: none
+  transform: scale3d(0.7, 0.7, 1)
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 5
+  transition: 300ms all ease-in-out
+  display: flex
+  justify-content: center
+  align-items: center
+  .wrap
+    height: 30vh
+    width: 70vw
+    background: white
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    button#close
+      +size(30px)
+      background: $like
+      padding: 0
+      margin: 0
+      position: relative
+      border: none
+      &:focus, &:hover
+        outline: none
+      &::before, &::after
+        content: ''
+        width: 100%
+        height: 2px
+        background: black
+        transition: 300ms all ease-in-out
+      &::before
+        transform: rotate(45deg)
+      &::after
+        transform: rotate(-45deg)
+
+  &.active
+    visibility: visible
+    opacity: 1
+    pointer-events: auto
+    display: flex
+    transform: scale3d(1, 1, 1)
+    background: rgba(black, 0.8)
+    @supports (-webkit-backdrop-filter: none) and (backdrop-filter: none)
+      -webkit-backdrop-filter: blur(10px)
+      backdrop-filter: blur(10px)
+      background: rgba(black, 0.4)
+
+
+input
+  outline: none
+  appearance: none
+  border: 1px solid black
+  border-radius: 4px
+  padding: 10px 15px
+  max-width: 400px
+  width: 50%
+  margin: 20px 0
+  background: none
+  transition: 300ms all ease-in-out
+  &::placeholder
+    color: rgba(black, 0.35)
+  &:focus
+    box-shadow: 0px 0px 6px 0px $like
+    border-color: $like
+    &::placeholder
+      color: transparent
+  &[type=submit]:hover
+    background: black
+    color: white
+    cursor: pointer

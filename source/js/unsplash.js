@@ -2,7 +2,13 @@ import { $ } from './bling';
 // import 'babel-polyfill';
 import { authToken, applicationSecret } from './tokens';
 
-const url = `https://api.unsplash.com/photos/random?&featured&client_id=${authToken}`;
+let url;
+const searchQuery = localStorage.getItem('searchQuery');
+if (searchQuery === null) {
+  url = `https://api.unsplash.com/photos/random?&featured&client_id=${authToken}`;
+} else {
+  url = `https://api.unsplash.com/photos/random?query=${searchQuery}&featured&client_id=${authToken}`;
+}
 const main = $('main');
 const download = $('#download');
 const moreButton = $('#more');
@@ -15,21 +21,26 @@ const login = $('#login');
 let accessToken = localStorage.getItem('accessToken');
 let photoId;
 let code;
-let redirectURI = `http://${window.location.hostname}`;
+let redirectURI;
 const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes`;
 
 if (accessToken === null || accessToken === undefined) {
   likePhoto.href = loginURL;
 }
 
-if (redirectURI === 'http://mcansh.local') {
+if (location.protocol === 'chrome-extension:') {
+  redirectURI = `${location.origin}/index.html`;
+  console.log(redirectURI);
+} else if (`http://${location.hostname}` === 'http://mcansh.local') {
   redirectURI = 'http://mcansh.local:5757/';
+  console.log(redirectURI);
 } else {
   redirectURI = 'https://mcansh.github.io/unsplash-new-tab/';
+  console.log(redirectURI);
 }
 
 function redirectMe() {
-  window.location.href = redirectURI;
+  location.href = redirectURI;
 }
 
 login.href = loginURL;
@@ -63,13 +74,7 @@ function showMoreMenu() {
   $('.popover').classList.toggle('is-visible');
 }
 
-function hideMoreMenu() {
-  $('.popover').classList.remove('is-visible');
-}
-
-
 moreButton.addEventListener('click', showMoreMenu);
-main.addEventListener('click', hideMoreMenu);
 
 if (location.search.length) {
   const urlEnc = window.location.search;
@@ -173,3 +178,41 @@ if (likePhoto.classList.contains('liked')) {
 } else {
   likePhoto.addEventListener('click', likeThePhoto);
 }
+
+function getQuery(event) {
+  const search = $('#query').value;
+  console.log(search);
+  localStorage.setItem('searchQuery', search);
+  showSettings();
+  event.preventDefault();
+}
+
+$('#save').addEventListener('click', getQuery);
+
+function fillQuery() {
+  const search = $('#query');
+  search.value = searchQuery;
+}
+
+fillQuery();
+
+function closeModal(e) {
+  if (document.querySelector('#modal').classList.contains('active')) {
+    if (e.keyCode === 27) {
+      $('#modal').classList.toggle('active');
+      $('body').classList.toggle('blur');
+    }
+  }
+}
+
+function showSettings() {
+  $('#modal').classList.toggle('active');
+  $('body').classList.toggle('blur');
+}
+
+$('#settings').addEventListener('click', showSettings);
+// $('#modal').addEventListener('click', showSettings);
+$('#close').addEventListener('click', showSettings);
+
+
+document.addEventListener('keyup', closeModal);

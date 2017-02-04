@@ -198,6 +198,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"\/source\/img\/plus.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/docs\/img\/plus.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"\/source\/img\/unsplash.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -240,20 +250,11 @@
 		"oAP": "\/docs\/js\/bundle.js.map",
 		"oF": 1
 		},
-	"\/source\/js\/login.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/docs\/js\/login.min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
 	"\/source\/js\/node_modules": {
 		"ft": 65536,
 		"oA": 1,
 		"oAP": "\/docs\/js\/node_modules",
-		"oF": 1
+		"oF": 0
 		},
 	"\/source\/js\/package.json": {
 		"ft": 524288,
@@ -308,7 +309,7 @@
 	"displayValue": "unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 507783701
+	"lastBuiltDate": 507875203
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

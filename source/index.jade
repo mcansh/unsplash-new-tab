@@ -51,11 +51,23 @@ html(lang="en")
 
     main
 
+    #modal
+      .wrap
+        button#close
+        h1 Unsplash Instant Settings
+        label(for="query") Filter the images you see
+        input#query(type="text" placeholder="Ex: Coffee")
+        input#save(type="submit" value="Save & Close")
+
     footer
       #profile(style="background-image: url()")
       .user-info
         a#name(href="")
         a#location(href="")
+
+      .settings
+        a.button#settings(href="#")
+          include img/elipsis.svg
 
 
     //- script(async src="https://cdn.polyfill.io/v2/polyfill.min.js")
