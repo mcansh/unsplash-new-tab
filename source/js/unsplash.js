@@ -18,14 +18,19 @@ const likePhoto = $('#like');
 const photoLocation = $('#location');
 const viewOnUnsplash = $('#view');
 const login = $('#login');
+const camera = $('.make.model');
+const resolution = $('.res');
 let accessToken = localStorage.getItem('accessToken');
 let photoId;
 let code;
-let redirectURI;
+let redirectURI = 'http://mcansh.local:5757';
+let username;
 const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes`;
 
 if (accessToken === null || accessToken === undefined) {
   likePhoto.href = loginURL;
+} else {
+  login.parentElement.remove();
 }
 
 if (location.protocol === 'chrome-extension:') {
@@ -52,7 +57,7 @@ fetch(url, {
   .then((data) => {
     photoId = data.id;
     main.style.backgroundColor = data.color;
-    main.style.backgroundImage = `url(https://unsplash.com/photos/${data.id}/download)`; // would use `data.links.download` but that goes over http, thus throwing errors in console, this simply remakes that but over https
+    main.style.backgroundImage = `url(https://unsplash.com/photos/${data.id}/download)`; // would use `data.links.download` but that goes over http, thus throwing errors in console, this simply does it but over https
 
     viewOnUnsplash.href = data.links.html;
     profile.style.backgroundImage = `url(${data.user.profile_image.large})`;
@@ -60,6 +65,12 @@ fetch(url, {
     userName.href = data.user.links.html;
     userName.textContent = data.user.name;
     $('#like span').textContent = data.likes;
+    if (data.exif.model !== null) {
+      camera.textContent = `Camera: ${data.exif.model}`;
+    } else {
+      camera.remove();
+    }
+    resolution.textContent = `Resolution: ${data.width}x${data.height}`;
 
     if (data.location !== null) {
       photoLocation.textContent = data.user.location;
@@ -73,8 +84,6 @@ fetch(url, {
 function showMoreMenu() {
   $('.popover').classList.toggle('is-visible');
 }
-
-moreButton.addEventListener('click', showMoreMenu);
 
 if (location.search.length) {
   const urlEnc = window.location.search;
@@ -102,14 +111,6 @@ if (location.search.length) {
     redirectMe();
   }
 }
-
-// function showMe() {
-//   fetch(`https://api.unsplash.com/me/?access_token=${accessToken}`, {
-//     method: 'GET'
-//   })
-//     .then(blob => blob.json())
-//     .then((data) => { console.log(data); });
-// }
 
 function logMeIn() {
   fetch(`https://unsplash.com/oauth/token/?client_id=${authToken}&client_secret=${applicationSecret}&redirect_uri=${redirectURI}&code=${code}&grant_type=authorization_code`, {
@@ -175,19 +176,17 @@ function unlikeThePhoto(event) {
 
 if (likePhoto.classList.contains('liked')) {
   likePhoto.addEventListener('click', unlikeThePhoto);
+  likePhoto.removeEventListener('click', likeThePhoto);
 } else {
   likePhoto.addEventListener('click', likeThePhoto);
+  likePhoto.removeEventListener('click', unlikeThePhoto);
 }
 
-function getQuery(event) {
+function getQuery() {
   const search = $('#query').value;
   console.log(search);
   localStorage.setItem('searchQuery', search);
-  showSettings();
-  event.preventDefault();
 }
-
-$('#save').addEventListener('click', getQuery);
 
 function fillQuery() {
   const search = $('#query');
@@ -196,23 +195,36 @@ function fillQuery() {
 
 fillQuery();
 
-function closeModal(e) {
-  if (document.querySelector('#modal').classList.contains('active')) {
-    if (e.keyCode === 27) {
-      $('#modal').classList.toggle('active');
-      $('body').classList.toggle('blur');
-    }
-  }
+function showExif() {
+  $('#exif + .popover').classList.toggle('is-visible');
 }
 
-function showSettings() {
-  $('#modal').classList.toggle('active');
-  $('body').classList.toggle('blur');
+function showSearch() {
+  $('#settings + .popover').classList.toggle('is-visible');
 }
 
-$('#settings').addEventListener('click', showSettings);
-// $('#modal').addEventListener('click', showSettings);
-$('#close').addEventListener('click', showSettings);
+$('#save').addEventListener('click', getQuery);
+moreButton.addEventListener('click', showMoreMenu);
+$('#settings').addEventListener('click', showSearch);
+$('#exif').addEventListener('click', showExif);
 
 
-document.addEventListener('keyup', closeModal);
+function getCollections() {
+  fetch(`https://api.unsplash.com/me/?access_token=${accessToken}`, {
+    method: 'GET',
+  })
+  .then(blob => blob.json())
+  .then((me) => {
+    username = me.username;
+
+    fetch(`https://api.unsplash.com/users/${username}/collections/?access_token=${accessToken}`, {
+      method: 'GET'
+    })
+      .then(blob => blob.json())
+      .then((collections) => {
+        console.log(collections);
+      });
+  });
+}
+
+getCollections();

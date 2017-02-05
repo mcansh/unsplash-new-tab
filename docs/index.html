@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Unofficial Unsplash extension for Google Chrome">
+    <meta name="description" content="Unofficial Unsplash extension for Google Chrome based on the Offical extension but with added features">
     <meta name="author" content="Logan McAnsh">
     <link rel="stylesheet" href="css/unsplash.css">
     <link rel="shortcut icon" href="img/icons/icon32.png" sizes="32x32">
@@ -29,24 +29,22 @@
   </head>
   <body>
     <header>
-      <div id="logo"><a href="https://unsplash.com"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="104px" height="90px" viewBox="0 0 104 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <title>Unsplash</title>
-    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="365-photos-later" sketch:type="MSLayerGroup" transform="translate(1.000000, 0.000000)" fill="#FFFFFF">
-            <path d="M51.2,36.1 C42.7,36.1 35.7,43 35.7,51.6 C35.7,60.2 42.7,67 51.2,67 C59.7,67 66.7,60.1 66.7,51.5 C66.7,42.9 59.8,36.1 51.2,36.1 L51.2,36.1 Z M89,13.7 L77,13.7 L74.3,6.4 C72.9,2.9 68.7,0 65,0 L37.5,0 C33.7,0 29.6,2.9 28.2,6.4 L25.5,13.7 L13.5,13.7 C5.9,13.7 -0.2,19.9 -0.2,27.4 L-0.2,75.5 C-0.2,83.1 6,89.2 13.5,89.2 L89,89.2 C96.6,89.2 102.7,83 102.7,75.5 L102.7,27.5 C102.8,19.9 96.6,13.7 89,13.7 L89,13.7 Z M51.2,75.6 C37.9,75.6 27.2,64.8 27.2,51.6 C27.2,38.4 38,27.6 51.2,27.6 C64.5,27.6 75.2,38.4 75.2,51.6 C75.2,64.8 64.5,75.6 51.2,75.6 L51.2,75.6 Z" id="Shape" sketch:type="MSShapeGroup"></path>
-        </g>
-    </g>
-</svg></a></div><a id="like" href="#" class="button"><svg class="icon-btn icon-btn--like" version="1.1" viewBox="0 0 32 32" width="32" height="32">
-  <path d="M17.4 29c-.8.8-2 .8-2.8 0l-12.3-12.8c-3.1-3.1-3.1-8.2 0-11.4 3.1-3.1 8.2-3.1 11.3 0l2.4 2.8 2.3-2.8c3.1-3.1 8.2-3.1 11.3 0 3.1 3.1 3.1 8.2 0 11.4l-12.2 12.8z"></path>
-</svg>
-<span></span></a><a id="download" download href="" class="button"><svg class="Apljk _11dQc _3YIV2 _1Jd5C" version="1.1" viewBox="0 0 32 32" width="32" height="32" aria-labelledby="icon-title-217 icon-desc-218" aria-hidden="false"><path d="M29.8 26.6h-27.6c-.7 0-1.2.6-1.2 1.2v2c0 .6.6 1.2 1.2 1.2h27.6c.7 0 1.2-.6 1.2-1.2v-2c.1-.7-.6-1.2-1.2-1.2zM15.1 23.8c.2.2.6.3.9.3s.7-.1.9-.3l8.8-8.5c.3-.3.4-.6.4-.9 0-.4-.1-.7-.5-1l-1.4-1.3c-.4-.5-1.2-.5-1.7 0l-4.3 4.2v-14.1c0-.6-.5-1.2-1.2-1.2h-2c-.7 0-1.2.6-1.2 1.2v14.1l-4.3-4.2c-.5-.5-1.3-.5-1.7 0l-1.4 1.3c-.4.3-.5.6-.5 1 0 .3.1.6.4.9l8.8 8.5z"></path></svg>
-<span>Download</span></a><a id="more" href="#" class="button"><svg class="icon-btn icon-btn--dots" version="1.1" viewBox="0 0 32 32" width="32" height="32">
-  <path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z"></path>
-</svg>
-</a>
+      <div id="logo"><a href="https://unsplash.com">
+          <svg>
+            <use xlink:href="/img/sprite.svg#unsplash"></use>
+          </svg></a></div><a id="like" href="#" class="button">
+        <svg class="icon-btn--like">
+          <use xlink:href="/img/sprite.svg#like-icon"></use>
+        </svg><span></span></a><a id="add" href="#" class="button">
+        <svg>
+          <use xlink:href="/img/sprite.svg#plus"></use>
+        </svg></a><a id="download" download href="" class="button">
+        <svg>
+          <use xlink:href="/img/sprite.svg#download"></use>
+        </svg><span>Download</span></a><a id="more" href="#" class="button">
+        <svg>
+          <use xlink:href="/img/sprite.svg#elipsis"></use>
+        </svg></a>
       <div class="popover">
         <ul>
           <li><a href="https://github.com/mcansh/unsplash-new-tab" target="_blank">View Project on GitHub</a></li>
@@ -57,22 +55,26 @@
       </div>
     </header>
     <main></main>
-    <div id="modal">
-      <div class="wrap">
-        <button id="close"></button>
-        <h1>Unsplash Instant Settings</h1>
-        <label for="query">Filter the images you see</label>
-        <input id="query" type="text" placeholder="Ex: Coffee">
-        <input id="save" type="submit" value="Save &amp; Close">
-      </div>
-    </div>
     <footer>
       <div id="profile" style="background-image: url()"></div>
       <div class="user-info"><a id="name" href=""></a><a id="location" href=""></a></div>
-      <div class="settings"><a id="settings" href="#" class="button"><svg class="icon-btn icon-btn--dots" version="1.1" viewBox="0 0 32 32" width="32" height="32">
-  <path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z"></path>
-</svg>
-</a></div>
+      <div class="settings"><a id="settings" href="#" class="button"><span>Filter</span></a>
+        <div class="popover">
+          <h4>Filter the photos you see</h4>
+          <input id="query" type="text" placeholder="Ex: coffee">
+          <input id="save" type="submit" value="Save">
+        </div><a id="exif" href="#" class="button">
+          <svg>
+            <use xlink:href="/img/sprite.svg#elipsis"></use>
+          </svg></a>
+        <div class="popover">
+          <ul>
+            <h4>Photo Information</h4>
+            <li class="make model"></li>
+            <li class="res"></li>
+          </ul>
+        </div>
+      </div>
     </footer>
     <script async src="js/bundle.min.js"></script>
   </body>

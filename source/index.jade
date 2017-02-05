@@ -6,7 +6,7 @@ html(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    meta(name="description" content="Unofficial Unsplash extension for Google Chrome")
+    meta(name="description" content="Unofficial Unsplash extension for Google Chrome based on the Offical extension but with added features")
     meta(name="author" content="Logan McAnsh")
     link(rel="stylesheet" href="css/unsplash.css")
     link(rel="shortcut icon" href="img/icons/icon32.png" sizes="32x32")
@@ -32,16 +32,23 @@ html(lang="en")
     header
       #logo
         a(href="https://unsplash.com")
-          include img/unsplash.svg
+          svg
+            use(xlink:href="/img/sprite.svg#unsplash")
 
       a.button#like(href="#")
-        include img/like-icon.svg
+        svg.icon-btn--like
+          use(xlink:href="/img/sprite.svg#like-icon")
         span
+      a.button#add(href="#")
+        svg
+          use(xlink:href="/img/sprite.svg#plus")
       a.button#download(download href="")
-        include img/download.svg
+        svg
+          use(xlink:href="/img/sprite.svg#download")
         span Download
       a.button#more(href="#")
-        include img/elipsis.svg
+        svg
+          use(xlink:href="/img/sprite.svg#elipsis")
       .popover
         ul
           li: a(href="https://github.com/mcansh/unsplash-new-tab" target="_blank") View Project on GitHub
@@ -51,14 +58,6 @@ html(lang="en")
 
     main
 
-    #modal
-      .wrap
-        button#close
-        h1 Unsplash Instant Settings
-        label(for="query") Filter the images you see
-        input#query(type="text" placeholder="Ex: Coffee")
-        input#save(type="submit" value="Save & Close")
-
     footer
       #profile(style="background-image: url()")
       .user-info
@@ -67,8 +66,19 @@ html(lang="en")
 
       .settings
         a.button#settings(href="#")
-          include img/elipsis.svg
-
+          span Filter
+        .popover
+          h4 Filter the photos you see
+          input#query(type="text" placeholder="Ex: coffee")
+          input#save(type="submit" value="Save")
+        a.button#exif(href="#")
+          svg
+            use(xlink:href="/img/sprite.svg#elipsis")
+        .popover
+          ul
+            h4 Photo Information
+            li.make.model
+            li.res
 
     //- script(async src="https://cdn.polyfill.io/v2/polyfill.min.js")
     script(async src='js/bundle.min.js')

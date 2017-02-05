@@ -27,12 +27,6 @@
 		"oAP": "\/docs\/docs",
 		"oF": 0
 		},
-	"\/npm-debug.log": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/docs\/npm-debug.log",
-		"oF": 0
-		},
 	"\/README.md": {
 		"cS": 0,
 		"eF": 1,
@@ -85,7 +79,7 @@
 	"\/source\/img\/download.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/docs\/img\/download.svg",
 		"oF": 0,
 		"opt": 0,
@@ -191,7 +185,7 @@
 	"\/source\/img\/like-icon.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/docs\/img\/like-icon.svg",
 		"oF": 0,
 		"opt": 0,
@@ -203,6 +197,16 @@
 		"miP": 0,
 		"oA": 2,
 		"oAP": "\/docs\/img\/plus.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/source\/img\/sprite.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/docs\/img\/sprite.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
@@ -249,6 +253,15 @@
 		"oA": 2,
 		"oAP": "\/docs\/js\/bundle.js.map",
 		"oF": 1
+		},
+	"\/source\/js\/gulpfile.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/docs\/js\/gulpfile.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
 	"\/source\/js\/node_modules": {
 		"ft": 65536,
@@ -298,6 +311,12 @@
 		"oF": 3,
 		"oO": 0,
 		"oS": 1
+		},
+	"\/source\/npm-debug.log": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/npm-debug.log",
+		"oF": 0
 		}
 	},
 "hooks": [
@@ -309,7 +328,7 @@
 	"displayValue": "unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 507875203
+	"lastBuiltDate": 507940252
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

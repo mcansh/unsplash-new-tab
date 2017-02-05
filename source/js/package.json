@@ -3,17 +3,22 @@
   "version": "1.5.0",
   "description": "remade the unsplash new tab chrome extension.",
   "main": "unsplash.js",
-  "dependencies": {},
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-svgstore": "^6.1.0"
+  },
   "babel-polyfill": "^6.22.0",
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015-native-modules": "^6.9.4",
-    "webpack": "^2.2.1",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-config-airbnb-base": "^11.0.1",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint-plugin-import": "^2.2.0",
+    "webpack": "^2.2.1"
   },
   "scripts": {
     "build": "webpack --progress --colors --watch",
