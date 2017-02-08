@@ -1,13 +1,14 @@
-import { $ } from './bling';
+import { $, $$ } from './bling';
 // import 'babel-polyfill';
 import { authToken, applicationSecret } from './tokens';
 
+const endpoint = 'https://api.unsplash.com';
 let url;
 const searchQuery = localStorage.getItem('searchQuery');
 if (searchQuery === null) {
-  url = `https://api.unsplash.com/photos/random?&featured&client_id=${authToken}`;
+  url = `${endpoint}/photos/random?&featured&client_id=${authToken}`;
 } else {
-  url = `https://api.unsplash.com/photos/random?query=${searchQuery}&featured&client_id=${authToken}`;
+  url = `${endpoint}/photos/random?query=${searchQuery}&featured=true&client_id=${authToken}`;
 }
 const main = $('main');
 const download = $('#download');
@@ -20,12 +21,14 @@ const viewOnUnsplash = $('#view');
 const login = $('#login');
 const camera = $('.make.model');
 const resolution = $('.res');
+const downloads = $('.downloads');
 let accessToken = localStorage.getItem('accessToken');
 let photoId;
 let code;
 let redirectURI = 'http://mcansh.local:5757';
 let username;
-const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes`;
+let collectionID;
+const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes+read_collections+write_collections`;
 
 if (accessToken === null || accessToken === undefined) {
   likePhoto.href = loginURL;
@@ -36,7 +39,7 @@ if (accessToken === null || accessToken === undefined) {
 if (location.protocol === 'chrome-extension:') {
   redirectURI = `${location.origin}/index.html`;
   console.log(redirectURI);
-} else if (`http://${location.hostname}` === 'http://mcansh.local') {
+} else if (location.hostname === 'mcansh.local') {
   redirectURI = 'http://mcansh.local:5757/';
   console.log(redirectURI);
 } else {
@@ -71,6 +74,7 @@ fetch(url, {
       camera.remove();
     }
     resolution.textContent = `Resolution: ${data.width}x${data.height}`;
+    downloads.textContent = `Downloads: ${data.downloads}`;
 
     if (data.location !== null) {
       photoLocation.textContent = data.user.location;
@@ -81,7 +85,8 @@ fetch(url, {
   });
 
 
-function showMoreMenu() {
+function showMoreMenu(event) {
+  event.preventDefault();
   $('.popover').classList.toggle('is-visible');
 }
 
@@ -118,6 +123,7 @@ function logMeIn() {
   })
   .then(data => data.json())
   .then((data) => {
+    console.log(data.access_token);
     accessToken = data.access_token;
     localStorage.setItem('accessToken', accessToken);
     redirectMe();
@@ -128,7 +134,7 @@ function logMeIn() {
 }
 
 function getPhotoStats() {
-  fetch(`https://api.unsplash.com/photos/${photoId}/stats?access_token=${accessToken}`, {
+  fetch(`${endpoint}/photos/${photoId}/stats?access_token=${accessToken}`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
@@ -144,7 +150,7 @@ function getPhotoStats() {
 
 function likeThePhoto(event) {
   event.preventDefault();
-  fetch(`https://api.unsplash.com/photos/${photoId}/like?access_token=${accessToken}`, {
+  fetch(`${endpoint}/photos/${photoId}/like?access_token=${accessToken}`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -160,7 +166,7 @@ function likeThePhoto(event) {
 
 function unlikeThePhoto(event) {
   event.preventDefault();
-  fetch(`https://api.unsplash.com/photos/${photoId}/like?access_token=${accessToken}`, {
+  fetch(`${endpoint}/photos/${photoId}/like?access_token=${accessToken}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
@@ -186,6 +192,7 @@ function getQuery() {
   const search = $('#query').value;
   console.log(search);
   localStorage.setItem('searchQuery', search);
+  location.reload();
 }
 
 function fillQuery() {
@@ -195,11 +202,13 @@ function fillQuery() {
 
 fillQuery();
 
-function showExif() {
+function showExif(event) {
+  event.preventDefault();
   $('#exif + .popover').classList.toggle('is-visible');
 }
 
-function showSearch() {
+function showSearch(event) {
+  event.preventDefault();
   $('#settings + .popover').classList.toggle('is-visible');
 }
 
@@ -210,21 +219,49 @@ $('#exif').addEventListener('click', showExif);
 
 
 function getCollections() {
-  fetch(`https://api.unsplash.com/me/?access_token=${accessToken}`, {
+  fetch(`${endpoint}/me/?access_token=${accessToken}`, {
     method: 'GET',
   })
   .then(blob => blob.json())
   .then((me) => {
     username = me.username;
 
-    fetch(`https://api.unsplash.com/users/${username}/collections/?access_token=${accessToken}`, {
+    fetch(`${endpoint}/users/${username}/collections/?access_token=${accessToken}`, {
       method: 'GET'
     })
       .then(blob => blob.json())
       .then((collections) => {
-        console.log(collections);
+        collections.forEach((collection) => {
+          console.log(collection.id);
+          collectionID = collection.id;
+        });
       });
   });
 }
 
 getCollections();
+
+
+function addToCollection() {
+  fetch(`${endpoint}/collections/538766/add/?photo_id=${photoId}&access_token=${accessToken}`, {
+    method: 'POST'
+  })
+  .then(() => {
+    $('#add').classList.add('added');
+  });
+}
+
+function closePopOvers() {
+  $('.popover').classList.remove('is-visible');
+}
+
+$('#add').addEventListener('click', addToCollection);
+
+$('main').addEventListener('click', closePopOvers);
+$('.button').addEventListener('click', closePopOvers);
+
+document.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    getQuery();
+  }
+});

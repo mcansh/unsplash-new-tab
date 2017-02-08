@@ -35,9 +35,9 @@
 		"ema": 1,
 		"eSQ": 1,
 		"ft": 4096,
-		"oA": 1,
+		"oA": 0,
 		"oAP": "\/docs\/README.html",
-		"oF": 1,
+		"oF": 0,
 		"oFM": 0,
 		"oS": 0,
 		"pHT": 0,
@@ -182,6 +182,16 @@
 		"oAP": "\/docs\/img\/icons\/unsplash-favicon.ico",
 		"oF": 0
 		},
+	"\/source\/img\/info.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/docs\/img\/info.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"\/source\/img\/like-icon.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -236,8 +246,8 @@
 		"oA": 1,
 		"oAP": "\/docs\/js\/bling.min.js",
 		"oF": 0,
-		"sC": 3,
-		"tS": 1
+		"sC": 0,
+		"tS": 0
 		},
 	"\/source\/js\/bundle.js": {
 		"ft": 64,
@@ -246,7 +256,7 @@
 		"oAP": "\/docs\/js\/bundle.min.js",
 		"oF": 1,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/source\/js\/bundle.js.map": {
 		"ft": 8192,
@@ -284,7 +294,7 @@
 		"oAP": "\/docs\/js\/tokens.min.js",
 		"oF": 0,
 		"sC": 3,
-		"tS": 1
+		"tS": 0
 		},
 	"\/source\/js\/unsplash.js": {
 		"ft": 64,
@@ -293,7 +303,7 @@
 		"oAP": "\/docs\/js\/unsplash.min.js",
 		"oF": 0,
 		"sC": 3,
-		"tS": 1
+		"tS": 0
 		},
 	"\/source\/js\/webpack.config.js": {
 		"ft": 64,
@@ -301,8 +311,8 @@
 		"oA": 1,
 		"oAP": "\/docs\/js\/webpack.config.min.js",
 		"oF": 0,
-		"sC": 3,
-		"tS": 1
+		"sC": 0,
+		"tS": 0
 		},
 	"\/source\/manifest.json": {
 		"ft": 524288,
@@ -328,7 +338,7 @@
 	"displayValue": "unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 507940252
+	"lastBuiltDate": 508017525
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

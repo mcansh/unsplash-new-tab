@@ -71,14 +71,15 @@ html(lang="en")
           h4 Filter the photos you see
           input#query(type="text" placeholder="Ex: coffee")
           input#save(type="submit" value="Save")
-        a.button#exif(href="#")
+        a.button.not-a-button#exif(href="#")
           svg
-            use(xlink:href="/img/sprite.svg#elipsis")
+            use(xlink:href="/img/sprite.svg#info")
         .popover
           ul
             h4 Photo Information
             li.make.model
             li.res
+            li.downloads
 
     //- script(async src="https://cdn.polyfill.io/v2/polyfill.min.js")
     script(async src='js/bundle.min.js')

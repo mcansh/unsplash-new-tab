@@ -7,6 +7,7 @@
   box-sizing: border-box
 
 $like: #f15151
+$collection: #71B552
 
 body
   width: 100vw
@@ -76,10 +77,16 @@ header
     background: white
   &:last-of-type
     margin-right: 0px
+  &.not-a-button
+    background: none
 
 #add
   svg
     +size(13px)
+  &.added
+    background: $collection
+    svg
+      fill: white
 
 #download
   span
@@ -122,6 +129,7 @@ header
     opacity: 1
     visibility: visible
     transform: scale3d(1,1,1)
+
   &::before
     position: absolute
     top: -5px
@@ -133,7 +141,7 @@ header
     @supports (-webkit-backdrop-filter: none) and (backdrop-filter: none)
       -webkit-backdrop-filter: blur(10px)
       backdrop-filter: blur(10px)
-      background: rgba(black, 0.6)
+      background: rgba(black, 0.4)
   ul
     list-style: none
     padding-left: 0
