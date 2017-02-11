@@ -53,17 +53,17 @@
 		"oF": 1,
 		"opt": 1
 		},
-	"\/source\/css\/unsplash.css": {
+	"\/source\/assets\/css\/unsplash.css": {
 		"aP": 0,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/docs\/css\/unsplash-min.css",
+		"oAP": "\/docs\/assets\/css\/unsplash-min.css",
 		"oF": 0,
 		"oS": 0
 		},
-	"\/source\/css\/unsplash.sass": {
+	"\/source\/assets\/css\/unsplash.sass": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -71,166 +71,240 @@
 		"ft": 2,
 		"ma": 1,
 		"oA": 0,
-		"oAP": "\/docs\/css\/unsplash.css",
+		"oAP": "\/docs\/assets\/css\/unsplash.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
 		},
-	"\/source\/img\/download.svg": {
+	"\/source\/assets\/img\/download.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/docs\/img\/download.svg",
+		"oAP": "\/docs\/assets\/img\/download.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/source\/img\/elipsis.svg": {
+	"\/source\/assets\/img\/elipsis.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 1,
-		"oAP": "\/docs\/img\/elipsis.svg",
+		"oAP": "\/docs\/assets\/img\/elipsis.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/source\/img\/icons\/icon120.png": {
+	"\/source\/assets\/img\/icons\/icon120.png": {
 		"ft": 32768,
 		"iS": 1650,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon120.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon120.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/icon128.png": {
+	"\/source\/assets\/img\/icons\/icon128.png": {
 		"ft": 32768,
 		"iS": 1809,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon128.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon128.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/icon144.png": {
+	"\/source\/assets\/img\/icons\/icon144.png": {
 		"ft": 32768,
 		"iS": 2071,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon144.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon144.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/icon152.png": {
+	"\/source\/assets\/img\/icons\/icon152.png": {
 		"ft": 32768,
 		"iS": 2179,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon152.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon152.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/icon195.png": {
+	"\/source\/assets\/img\/icons\/icon195.png": {
 		"ft": 32768,
 		"iS": 3062,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon195.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon195.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/icon228.png": {
+	"\/source\/assets\/img\/icons\/icon228.png": {
 		"ft": 32768,
 		"iS": 2726,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon228.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon228.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/icon32.png": {
+	"\/source\/assets\/img\/icons\/icon32.png": {
 		"ft": 32768,
 		"iS": 469,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon32.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon32.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/icon57.png": {
+	"\/source\/assets\/img\/icons\/icon57.png": {
 		"ft": 32768,
 		"iS": 776,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon57.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon57.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/icon72.png": {
+	"\/source\/assets\/img\/icons\/icon72.png": {
 		"ft": 32768,
 		"iS": 937,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon72.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon72.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/icon96.png": {
+	"\/source\/assets\/img\/icons\/icon96.png": {
 		"ft": 32768,
 		"iS": 1320,
 		"oA": 0,
-		"oAP": "\/docs\/img\/icons\/icon96.png",
+		"oAP": "\/docs\/assets\/img\/icons\/icon96.png",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/source\/img\/icons\/unsplash-favicon.ico": {
+	"\/source\/assets\/img\/icons\/unsplash-favicon.ico": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/docs\/img\/icons\/unsplash-favicon.ico",
+		"oAP": "\/docs\/assets\/img\/icons\/unsplash-favicon.ico",
 		"oF": 0
 		},
-	"\/source\/img\/info.svg": {
+	"\/source\/assets\/img\/info.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/docs\/img\/info.svg",
+		"oAP": "\/docs\/assets\/img\/info.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/source\/img\/like-icon.svg": {
+	"\/source\/assets\/img\/like-icon.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/docs\/img\/like-icon.svg",
+		"oAP": "\/docs\/assets\/img\/like-icon.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/source\/img\/plus.svg": {
+	"\/source\/assets\/img\/plus.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/docs\/img\/plus.svg",
+		"oAP": "\/docs\/assets\/img\/plus.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/source\/img\/sprite.svg": {
+	"\/source\/assets\/img\/sprite.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/docs\/img\/sprite.svg",
+		"oAP": "\/docs\/assets\/img\/sprite.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/source\/img\/unsplash.svg": {
+	"\/source\/assets\/img\/unsplash.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/docs\/img\/unsplash.svg",
+		"oAP": "\/docs\/assets\/img\/unsplash.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
+		},
+	"\/source\/assets\/js\/bling.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/docs\/assets\/js\/bling.min.js",
+		"oF": 1,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/source\/assets\/js\/bundle.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/js\/bundle.min.js",
+		"oF": 1,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/source\/assets\/js\/bundle.js.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/js\/bundle.js.map",
+		"oF": 1
+		},
+	"\/source\/assets\/js\/gulpfile.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/docs\/assets\/js\/gulpfile.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/source\/assets\/js\/node_modules": {
+		"ft": 65536,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/js\/node_modules",
+		"oF": 0
+		},
+	"\/source\/assets\/js\/package.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/docs\/assets\/js\/package-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/source\/assets\/js\/tokens.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/docs\/assets\/js\/tokens.min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/source\/assets\/js\/unsplash.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/docs\/assets\/js\/unsplash.min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/source\/assets\/js\/webpack.config.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/docs\/assets\/js\/webpack.config.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
 	"\/source\/index.jade": {
 		"cOD": 1,
@@ -239,86 +313,6 @@
 		"oAP": "\/docs\/index.html",
 		"oF": 0,
 		"oS": 0
-		},
-	"\/source\/js\/bling.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/docs\/js\/bling.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/source\/js\/bundle.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 2,
-		"oAP": "\/docs\/js\/bundle.min.js",
-		"oF": 1,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/source\/js\/bundle.js.map": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/docs\/js\/bundle.js.map",
-		"oF": 1
-		},
-	"\/source\/js\/gulpfile.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/docs\/js\/gulpfile.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/source\/js\/node_modules": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "\/docs\/js\/node_modules",
-		"oF": 0
-		},
-	"\/source\/js\/npm-debug.log": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/docs\/js\/npm-debug.log",
-		"oF": 0
-		},
-	"\/source\/js\/package.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/docs\/js\/package-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/source\/js\/tokens.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/docs\/js\/tokens.min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/source\/js\/unsplash.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/docs\/js\/unsplash.min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/source\/js\/webpack.config.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/docs\/js\/webpack.config.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
 		},
 	"\/source\/manifest.json": {
 		"ft": 524288,
@@ -344,7 +338,7 @@
 	"displayValue": "unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 508017525
+	"lastBuiltDate": 508544167
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

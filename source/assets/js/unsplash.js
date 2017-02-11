@@ -1,15 +1,9 @@
-import { $, $$ } from './bling';
+import { $ } from './bling';
 // import 'babel-polyfill';
 import { authToken, applicationSecret } from './tokens';
 
 const endpoint = 'https://api.unsplash.com';
 let url;
-const searchQuery = localStorage.getItem('searchQuery');
-if (searchQuery === null) {
-  url = `${endpoint}/photos/random?&featured&client_id=${authToken}`;
-} else {
-  url = `${endpoint}/photos/random?query=${searchQuery}&featured=true&client_id=${authToken}`;
-}
 const main = $('main');
 const download = $('#download');
 const moreButton = $('#more');
@@ -29,8 +23,28 @@ let redirectURI = 'http://mcansh.local:5757';
 let username;
 let myCollections;
 const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes+read_collections+write_collections`;
+const searchQuery = localStorage.getItem('searchQuery');
+const searchUser = localStorage.getItem('searchUser');
 
-if (accessToken === null || accessToken === undefined) {
+if (searchQuery === null && searchUser === null) {
+  console.log('neither a query or user was found');
+  url = `${endpoint}/photos/random?featured=true&client_id=${authToken}&access_token=${accessToken}`;
+} else if (searchQuery !== null && searchUser === null) {
+  console.log('found a query but not a user');
+  url = `${endpoint}/photos/random?featured=true&query=${searchQuery}&client_id=${authToken}&access_token=${accessToken}`;
+} else if (searchUser !== null && searchQuery === null) {
+  console.log('found a user but not a query');
+  url = `${endpoint}/photos/random?featured=true&username=${searchUser}&client_id=${authToken}&access_token=${accessToken}`;
+} else if (searchUser !== null && searchQuery !== null) {
+  console.log('found both a query and user');
+  url = `${endpoint}/photos/random?featured=true&username=${searchUser}&query=${searchQuery}&client_id=${authToken}&access_token=${accessToken}`;
+} else {
+  console.error('🤔');
+}
+
+console.log(url);
+
+if (accessToken === null || accessToken === undefined || accessToken === 'null' || accessToken === 'undefined') {
   likePhoto.href = loginURL;
 } else {
   login.parentElement.remove();
@@ -73,6 +87,13 @@ fetch(url, {
     } else {
       camera.remove();
     }
+
+    if (data.liked_by_user === true) {
+      likePhoto.classList.add('liked');
+    } else {
+      console.log('you dont alreAdy like this photo');
+    }
+
     resolution.textContent = `Resolution: ${data.width}x${data.height}`;
     downloads.textContent = `Downloads: ${(data.downloads).toLocaleString()}`;
 
@@ -87,7 +108,7 @@ fetch(url, {
 
 function showMoreMenu(event) {
   event.preventDefault();
-  $('.popover').classList.toggle('is-visible');
+  $('#more + .popover').classList.toggle('is-visible');
 }
 
 if (location.search.length) {
@@ -190,13 +211,18 @@ if (likePhoto.classList.contains('liked')) {
 
 function getQuery() {
   const search = $('#query').value;
+  const user = $('#user').value;
+  console.log(searchUser);
   console.log(search);
   localStorage.setItem('searchQuery', search);
+  localStorage.setItem('searchUser', user);
   location.reload();
 }
 
 function fillQuery() {
   const search = $('#query');
+  const user = $('#user');
+  user.value = searchUser;
   search.value = searchQuery;
 }
 
@@ -265,7 +291,6 @@ function closePopOvers() {
   $('.popover').classList.remove('is-visible');
 }
 
-// $('#add').addEventListener('click', addToCollection);
 $('#add').addEventListener('click', showCollections);
 
 $('main').addEventListener('click', closePopOvers);

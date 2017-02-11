@@ -49,6 +49,7 @@ header
       fill: rgba(white, 0.8)
       transition: 300ms all ease-in-out
 .button
+  cursor: pointer
   text-transform: uppercase
   display: flex
   justify-content: center
@@ -79,6 +80,7 @@ header
     margin-right: 0px
   &.not-a-button
     background: none
+    margin: 0
 
 #add
   svg
@@ -134,7 +136,7 @@ header
     position: absolute
     top: -5px
     background: rgba(black, 0.9)
-    right: 15px
+    right: 13px
     +size(10px)
     transform: rotate(45deg)
     content: ''
@@ -201,6 +203,7 @@ footer
     &::before
       top: auto
       bottom: -5px
+      right: 14px
     h4
       margin-bottom: 15px
 
@@ -211,7 +214,11 @@ footer
     &::before
       top: auto
       bottom: -5px
-      right: 70px
+      right: 61px
+
+    label
+      display: block
+      margin: 20px 0 10px 0
 
     input
       outline: none
@@ -221,7 +228,6 @@ footer
       padding: 10px 15px
       max-width: 400px
       width: 100%
-      margin: 20px 0 0 0
       background: white
       transition: 300ms all ease-in-out
       &::placeholder
@@ -231,7 +237,9 @@ footer
         border-color: $like
         &::placeholder
           color: transparent
-      &[type=submit]:hover
-        background: black
-        color: white
-        cursor: pointer
+      &[type=submit]
+        margin-top: 30px
+        &:hover
+          background: black
+          color: white
+          cursor: pointer

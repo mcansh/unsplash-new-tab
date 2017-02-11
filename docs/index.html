@@ -8,36 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Unofficial Unsplash extension for Google Chrome based on the Offical extension but with added features">
     <meta name="author" content="Logan McAnsh">
-    <link rel="stylesheet" href="css/unsplash.css">
-    <link rel="shortcut icon" href="img/icons/icon32.png" sizes="32x32">
+    <link rel="stylesheet" href="assets/css/unsplash.css">
+    <link rel="shortcut icon" href="/assets/img/icons/icon32.png" sizes="32x32">
     <!-- Apple Specific Icons-->
-    <link rel="apple-touch-icon-precomposed" sizes="228x228" href="img/icons/icon228.png">
-    <link rel="apple-touch-icon-precomposed" sizes="195x195" href="img/icons/icon195.png">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/icons/icon152.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/icons/icon144.png">
-    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="img/icons/icon128.png">
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/icons/icon120.png">
-    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="img/icons/icon96.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/icon72.png">
-    <link rel="apple-touch-icon-precomposed" href="img/icons/icon57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="228x228" href="/assets/img/icons/icon228.png">
+    <link rel="apple-touch-icon-precomposed" sizes="195x195" href="/assets/img/icons/icon195.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/icons/icon152.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/icons/icon144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="/assets/img/icons/icon128.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/icons/icon120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="/assets/img/icons/icon96.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/icons/icon72.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/img/icons/icon57.png">
     <!-- Twitter Card-->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@logansmcansh">
     <meta name="twitter:title" content="Unsplash Instant">
     <meta name="twitter:description" content="Unsplash New Tab by @logansmcansh">
-    <meta name="twitter:image" content="img/icons/icon228.png">
+    <meta name="twitter:image" content="/assets/img/icons/icon228.png">
   </head>
   <body>
     <header>
       <div id="logo"><a href="https://unsplash.com">
           <svg>
-            <use xlink:href="/img/sprite.svg#unsplash"></use>
+            <use xlink:href="/assets/img/sprite.svg#unsplash"></use>
           </svg></a></div><a id="like" href="#" class="button">
         <svg class="icon-btn--like">
-          <use xlink:href="/img/sprite.svg#like-icon"></use>
+          <use xlink:href="/assets/img/sprite.svg#like-icon"></use>
         </svg><span></span></a><a id="add" href="#" class="button">
         <svg>
-          <use xlink:href="/img/sprite.svg#plus"></use>
+          <use xlink:href="/assets/img/sprite.svg#plus"></use>
         </svg></a>
       <div class="popover">
         <ul>
@@ -45,10 +45,10 @@
         </ul>
       </div><a id="download" download href="" class="button">
         <svg>
-          <use xlink:href="/img/sprite.svg#download"></use>
+          <use xlink:href="/assets/img/sprite.svg#download"></use>
         </svg><span>Download</span></a><a id="more" href="#" class="button">
         <svg>
-          <use xlink:href="/img/sprite.svg#elipsis"></use>
+          <use xlink:href="/assets/img/sprite.svg#elipsis"></use>
         </svg></a>
       <div class="popover">
         <ul>
@@ -66,12 +66,17 @@
       <div class="settings"><a id="settings" href="#" class="button"><span>Filter</span></a>
         <div class="popover">
           <h4>Filter the photos you see</h4>
+          <label for="user">Username</label>
+          <input id="user" type="text" placeholder="Ex: mcansh">
+          <label for="query">Query</label>
           <input id="query" type="text" placeholder="Ex: coffee">
           <input id="save" type="submit" value="Save">
-        </div><a id="exif" href="#" class="button not-a-button">
+        </div>
+        <div id="exif" class="button not-a-button">
           <svg>
-            <use xlink:href="/img/sprite.svg#info"></use>
-          </svg></a>
+            <use xlink:href="/assets/img/sprite.svg#info"></use>
+          </svg>
+        </div>
         <div class="popover">
           <ul>
             <h4>Photo Information</h4>
@@ -82,6 +87,6 @@
         </div>
       </div>
     </footer>
-    <script async src="js/bundle.min.js"></script>
+    <script async src="/assets/js/bundle.min.js"></script>
   </body>
 </html>
