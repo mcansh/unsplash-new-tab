@@ -35,9 +35,9 @@
 		"ema": 1,
 		"eSQ": 1,
 		"ft": 4096,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/docs\/README.html",
-		"oF": 0,
+		"oF": 1,
 		"oFM": 0,
 		"oS": 0,
 		"pHT": 0,
@@ -256,6 +256,12 @@
 		"oAP": "\/docs\/assets\/js\/bundle.js.map",
 		"oF": 1
 		},
+	"\/source\/assets\/js\/etc": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/docs\/assets\/js\/etc",
+		"oF": 0
+		},
 	"\/source\/assets\/js\/gulpfile.js": {
 		"ft": 64,
 		"mi": 0,
@@ -267,9 +273,9 @@
 		},
 	"\/source\/assets\/js\/node_modules": {
 		"ft": 65536,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/docs\/assets\/js\/node_modules",
-		"oF": 0
+		"oF": 1
 		},
 	"\/source\/assets\/js\/package.json": {
 		"ft": 524288,
@@ -338,7 +344,7 @@
 	"displayValue": "unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 508544167
+	"lastBuiltDate": 508548753
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2256,7 +2262,7 @@
 	"languageDefaultsUserDefined": [
 		],
 	"previewPathAddition": "",
-	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules",
+	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules, \/source\/assets\/js\/etc",
 	"sourceFolderName": "source",
 	"uglifyDefinesString": "",
 	"uglifyFlags2": {
