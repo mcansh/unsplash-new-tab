@@ -42,8 +42,6 @@ if (searchQuery === null && searchUser === null) {
   console.error('🤔');
 }
 
-console.log(url);
-
 if (accessToken === null || accessToken === undefined || accessToken === 'null' || accessToken === 'undefined') {
   likePhoto.href = loginURL;
 } else {
@@ -52,13 +50,10 @@ if (accessToken === null || accessToken === undefined || accessToken === 'null' 
 
 if (location.protocol === 'chrome-extension:') {
   redirectURI = `${location.origin}/index.html`;
-  console.log(redirectURI);
 } else if (location.hostname === 'mcansh.local') {
   redirectURI = 'http://mcansh.local:5757/';
-  console.log(redirectURI);
 } else {
   redirectURI = 'https://mcansh.github.io/unsplash-new-tab/';
-  console.log(redirectURI);
 }
 
 function redirectMe() {
@@ -90,8 +85,6 @@ fetch(url, {
 
     if (data.liked_by_user === true) {
       likePhoto.classList.add('liked');
-    } else {
-      console.log('you dont alreAdy like this photo');
     }
 
     resolution.textContent = `Resolution: ${data.width}x${data.height}`;
@@ -129,7 +122,6 @@ if (location.search.length) {
   }
 
   if (code) {
-    console.log(`CODE: ${code}`);
     window.code = code;
     logMeIn();
   } else {
@@ -144,7 +136,6 @@ function logMeIn() {
   })
   .then(data => data.json())
   .then((data) => {
-    console.log(data.access_token);
     accessToken = data.access_token;
     localStorage.setItem('accessToken', accessToken);
     redirectMe();

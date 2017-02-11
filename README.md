@@ -9,16 +9,16 @@ uses the fetch api which is currently available in Chrome and Safari (10.1+)[onl
 ## How to Install
 1. There are 2 ways of installing this chrome extension
 
-  1a. you grab it from the [webstore](https://chrome.google.com/webstore/detail/custom-unsplash-instant/jakkljefkjcncpdibfmogcbdhonbiplp) 
-  
+  1a. you grab it from the [webstore](https://chrome.google.com/webstore/detail/custom-unsplash-instant/jakkljefkjcncpdibfmogcbdhonbiplp)
+
   1b. or build from [source](https://github.com/mcansh/unsplash-new-tab/releases/latest)
 
 ## Development
 1. Clone/Fork the Repo
 
-2. install node modules: `$ npm --prefix ./source/js install ./source/js`
+2. install node modules: `$ npm --prefix ./source/assets/js install ./source/assets/js`
 
-3. run webpack: `$ npm run --prefix source/js build`
+3. run webpack: `$ npm run --prefix source/assets/js build`
 
 4. you're now off to the races!
 
