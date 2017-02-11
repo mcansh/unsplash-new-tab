@@ -48,9 +48,9 @@
 	"\/screenshot.jpg": {
 		"ft": 16384,
 		"iS": 1966313,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/docs\/screenshot.jpg",
-		"oF": 0,
+		"oF": 1,
 		"opt": 1
 		},
 	"\/source\/assets\/css\/unsplash.css": {
@@ -344,7 +344,7 @@
 	"displayValue": "unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 508548753
+	"lastBuiltDate": 508548837
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
