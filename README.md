@@ -25,6 +25,6 @@ uses the fetch api which is currently available in Chrome and Safari (10.1+)[onl
 5. (optional) CodeKit for compiling SASS, and Jade(Pug)
 
 ### Screenshot
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.jpg)
 
 ![basically](http://weknowmemes.com/wp-content/uploads/2013/11/i-made-this-comic.jpg)
