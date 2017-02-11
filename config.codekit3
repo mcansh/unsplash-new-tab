@@ -45,12 +45,12 @@
 		"rFN": 0,
 		"uCM": 0
 		},
-	"\/screenshot.png": {
-		"ft": 32768,
-		"iS": 2945158,
-		"oA": 1,
-		"oAP": "\/docs\/screenshot.png",
-		"oF": 1,
+	"\/screenshot.jpg": {
+		"ft": 16384,
+		"iS": 1966313,
+		"oA": 0,
+		"oAP": "\/docs\/screenshot.jpg",
+		"oF": 0,
 		"opt": 1
 		},
 	"\/source\/assets\/css\/unsplash.css": {
