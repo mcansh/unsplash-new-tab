@@ -27,7 +27,7 @@ let photoId;
 let code;
 let redirectURI = 'http://mcansh.local:5757';
 let username;
-let collectionID;
+let myCollections;
 const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes+read_collections+write_collections`;
 
 if (accessToken === null || accessToken === undefined) {
@@ -74,7 +74,7 @@ fetch(url, {
       camera.remove();
     }
     resolution.textContent = `Resolution: ${data.width}x${data.height}`;
-    downloads.textContent = `Downloads: ${data.downloads}`;
+    downloads.textContent = `Downloads: ${(data.downloads).toLocaleString()}`;
 
     if (data.location !== null) {
       photoLocation.textContent = data.user.location;
@@ -231,19 +231,29 @@ function getCollections() {
     })
       .then(blob => blob.json())
       .then((collections) => {
-        collections.forEach((collection) => {
-          console.log(collection.id);
-          collectionID = collection.id;
+        window.myCollections = collections.map((collection, i) => {
+          return collection.id;
         });
+        $('#add + .popover ul').innerHTML = myCollections.map((collection, i) => {
+          return `
+            <li>
+              <a href="#">${collection.id}</a>
+            </li>
+          `;
+        }).join('');
       });
   });
 }
 
 getCollections();
 
+function showCollections() {
+  $('#add + .popover').classList.toggle('is-visible');
+}
+
 
 function addToCollection() {
-  fetch(`${endpoint}/collections/538766/add/?photo_id=${photoId}&access_token=${accessToken}`, {
+  fetch(`${endpoint}/collections/${collectionID}/add/?photo_id=${photoId}&access_token=${accessToken}`, {
     method: 'POST'
   })
   .then(() => {
@@ -255,7 +265,8 @@ function closePopOvers() {
   $('.popover').classList.remove('is-visible');
 }
 
-$('#add').addEventListener('click', addToCollection);
+// $('#add').addEventListener('click', addToCollection);
+$('#add').addEventListener('click', showCollections);
 
 $('main').addEventListener('click', closePopOvers);
 $('.button').addEventListener('click', closePopOvers);
