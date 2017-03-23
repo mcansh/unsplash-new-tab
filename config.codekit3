@@ -5,9 +5,25 @@
 		"name": "Process All Remaining Files and Folders",
 		"stepType": 1,
 		"uuidString": "05E8282E-77FA-4225-A024-90F14D5E56A0"
+		},
+	{
+		"name": "New \"Run Script\" Step",
+		"scriptSourceString": "[ -e .\/source\/assets\/img\/sprite.svg ] && rm .\/source\/assets\/img\/sprite.svg\ngulp svgstore\necho \"spritesheet coming up!\"",
+		"scriptType": 1,
+		"scriptUUIDString": "25C87785-40F9-4172-971F-CB9D1F21EFFD",
+		"stepType": 2,
+		"uuidString": "6AFC885F-9796-4AF5-A39D-E0B0B1BD14A0"
+		},
+	{
+		"itemsToProcess": [
+			"\/source\/index.jade"
+			],
+		"name": "New \"Process Certain Files\" Step",
+		"stepType": 0,
+		"uuidString": "E4D703B8-1658-49E6-A477-CABBBA7287AE"
 		}
 	],
-"creatorBuild": "25504",
+"creatorBuild": "25704",
 "files": {
 	"\/.eslintrc": {
 		"ft": 8192,
@@ -26,6 +42,29 @@
 		"oA": 1,
 		"oAP": "\/docs\/docs",
 		"oF": 0
+		},
+	"\/gulpfile.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/docs\/gulpfile.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/node_modules": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/docs\/node_modules",
+		"oF": 1
+		},
+	"\/package.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/docs\/package-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
 		},
 	"\/README.md": {
 		"cS": 0,
@@ -51,17 +90,8 @@
 		"oA": 1,
 		"oAP": "\/docs\/screenshot.jpg",
 		"oF": 1,
-		"opt": 1
-		},
-	"\/source\/assets\/css\/unsplash.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/docs\/assets\/css\/unsplash-min.css",
-		"oF": 0,
-		"oS": 0
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/css\/unsplash.sass": {
 		"aP": 1,
@@ -99,82 +129,102 @@
 	"\/source\/assets\/img\/icons\/icon120.png": {
 		"ft": 32768,
 		"iS": 1650,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon120.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/icon128.png": {
 		"ft": 32768,
 		"iS": 1809,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon128.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/icon144.png": {
 		"ft": 32768,
 		"iS": 2071,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon144.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/icon152.png": {
 		"ft": 32768,
 		"iS": 2179,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon152.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/icon195.png": {
 		"ft": 32768,
 		"iS": 3062,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon195.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/icon228.png": {
 		"ft": 32768,
 		"iS": 2726,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon228.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/icon32.png": {
 		"ft": 32768,
 		"iS": 469,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon32.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/icon57.png": {
 		"ft": 32768,
 		"iS": 776,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon57.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/icon72.png": {
 		"ft": 32768,
 		"iS": 937,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon72.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/icon96.png": {
 		"ft": 32768,
 		"iS": 1320,
+		"l": 1,
 		"oA": 0,
 		"oAP": "\/docs\/assets\/img\/icons\/icon96.png",
 		"oF": 0,
-		"opt": 1
+		"opt": 1,
+		"q": 100
 		},
 	"\/source\/assets\/img\/icons\/unsplash-favicon.ico": {
 		"ft": 8192,
@@ -215,7 +265,7 @@
 	"\/source\/assets\/img\/sprite.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/docs\/assets\/img\/sprite.svg",
 		"oF": 0,
 		"opt": 0,
@@ -256,35 +306,6 @@
 		"oAP": "\/docs\/assets\/js\/bundle.js.map",
 		"oF": 1
 		},
-	"\/source\/assets\/js\/etc": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "\/docs\/assets\/js\/etc",
-		"oF": 0
-		},
-	"\/source\/assets\/js\/gulpfile.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/docs\/assets\/js\/gulpfile.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"\/source\/assets\/js\/node_modules": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "\/docs\/assets\/js\/node_modules",
-		"oF": 1
-		},
-	"\/source\/assets\/js\/package.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/docs\/assets\/js\/package-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
 	"\/source\/assets\/js\/tokens.js": {
 		"ft": 64,
 		"mi": 0,
@@ -303,14 +324,11 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"\/source\/assets\/js\/webpack.config.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/docs\/assets\/js\/webpack.config.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
+	"\/source\/humans.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/humans.txt",
+		"oF": 0
 		},
 	"\/source\/index.jade": {
 		"cOD": 1,
@@ -328,10 +346,19 @@
 		"oO": 0,
 		"oS": 1
 		},
-	"\/source\/npm-debug.log": {
+	"\/webpack.config.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/docs\/webpack.config.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/yarn.lock": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/docs\/npm-debug.log",
+		"oAP": "\/docs\/yarn.lock",
 		"oF": 0
 		}
 	},
@@ -344,7 +371,7 @@
 	"displayValue": "unsplash-new-tab",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-krieger",
-	"lastBuiltDate": 508548837
+	"lastBuiltDate": 512005527
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -1016,6 +1043,10 @@
 			"active": 1,
 			"optionString": ""
 			},
+		"no-compare-neg-zero": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-cond-assign": {
 			"active": 1,
 			"optionString": "'except-parens'"
@@ -1213,6 +1244,10 @@
 			"optionString": "{'grouping': false, 'allowCall': false }"
 			},
 		"no-mixed-spaces-and-tabs": {
+			"active": 0,
+			"optionString": ""
+			},
+		"no-multi-assign": {
 			"active": 0,
 			"optionString": ""
 			},
@@ -1492,6 +1527,10 @@
 			"active": 0,
 			"optionString": ""
 			},
+		"nonblock-statement-body-position": {
+			"active": 0,
+			"optionString": "'beside'"
+			},
 		"object-curly-newline": {
 			"active": 0,
 			"optionString": "{'ObjectExpression': {'multiline': true}, 'ObjectPattern': {'multiline': true}}"
@@ -1543,6 +1582,10 @@
 		"prefer-numeric-literals": {
 			"active": 0,
 			"optionString": ""
+			},
+		"prefer-promise-reject-errors": {
+			"active": 0,
+			"optionString": "{'allowEmptyReject': false}"
 			},
 		"prefer-rest-params": {
 			"active": 0,
@@ -1637,6 +1680,10 @@
 			"optionString": ""
 			},
 		"template-curly-spacing": {
+			"active": 0,
+			"optionString": "'never'"
+			},
+		"template-tag-spacing": {
 			"active": 0,
 			"optionString": "'never'"
 			},
@@ -2083,7 +2130,8 @@
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 0
+		"autoOutputPathStyle": 0,
+		"quality": 100
 		},
 	"languageDefaultsJS": {
 		"autoOutputAction": 1,
@@ -2176,7 +2224,9 @@
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 0
+		"autoOutputPathStyle": 0,
+		"enableLossy": 1,
+		"quality": 100
 		},
 	"languageDefaultsPUG": {
 		"autoOutputAction": 0,

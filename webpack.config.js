@@ -5,10 +5,10 @@ const nodeEnv = process.env.NODE_ENV || 'production';
 module.exports = {
   devtool: 'source-map',
   entry: {
-    filename: './unsplash.js'
+    filename: './source/assets/js/unsplash.js'
   },
   output: {
-    filename: './bundle.js'
+    filename: './source/assets/js/bundle.js'
   },
   module: {
     loaders: [

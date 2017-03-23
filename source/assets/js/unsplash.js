@@ -1,5 +1,6 @@
-import { $ } from './bling';
-// import 'babel-polyfill';
+import 'whatwg-fetch';
+import * as Cookies from 'js-cookie';
+import { $, $$ } from './bling';
 import { authToken, applicationSecret } from './tokens';
 
 const endpoint = 'https://api.unsplash.com';
@@ -16,15 +17,15 @@ const login = $('#login');
 const camera = $('.make.model');
 const resolution = $('.res');
 const downloads = $('.downloads');
-let accessToken = localStorage.getItem('accessToken');
+let accessToken = Cookies.get('accessToken') || null;
 let photoId;
 let code;
 let redirectURI = 'http://mcansh.local:5757';
 let username;
 let myCollections;
 const loginURL = `https://unsplash.com/oauth/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes+read_collections+write_collections`;
-const searchQuery = localStorage.getItem('searchQuery');
-const searchUser = localStorage.getItem('searchUser');
+const searchQuery = Cookies.get('searchQuery') || null;
+const searchUser = Cookies.get('searchUser') || null;
 
 if (searchQuery === null && searchUser === null) {
   console.log('neither a query or user was found');
@@ -44,6 +45,7 @@ if (searchQuery === null && searchUser === null) {
 
 if (accessToken === null || accessToken === undefined || accessToken === 'null' || accessToken === 'undefined') {
   likePhoto.href = loginURL;
+  login.href = loginURL;
 } else {
   login.parentElement.remove();
 }
@@ -51,16 +53,15 @@ if (accessToken === null || accessToken === undefined || accessToken === 'null' 
 if (location.protocol === 'chrome-extension:') {
   redirectURI = `${location.origin}/index.html`;
 } else if (location.hostname === 'mcansh.local') {
-  redirectURI = 'http://mcansh.local:5757/';
+  redirectURI = 'http://mcansh.local:5757';
 } else {
-  redirectURI = 'https://mcansh.github.io/unsplash-new-tab/';
+  redirectURI = 'https://mcansh.github.io/unsplash-new-tab';
 }
 
 function redirectMe() {
   location.href = redirectURI;
 }
 
-login.href = loginURL;
 
 fetch(url, {
   method: 'GET',
@@ -137,7 +138,7 @@ function logMeIn() {
   .then(data => data.json())
   .then((data) => {
     accessToken = data.access_token;
-    localStorage.setItem('accessToken', accessToken);
+    Cookies.set('accessToken', accessToken);
     redirectMe();
   })
   .catch((err) => {
@@ -205,8 +206,8 @@ function getQuery() {
   const user = $('#user').value;
   console.log(searchUser);
   console.log(search);
-  localStorage.setItem('searchQuery', search);
-  localStorage.setItem('searchUser', user);
+  Cookies.set('searchQuery', search);
+  Cookies.set('searchUser', user);
   location.reload();
 }
 
@@ -235,57 +236,63 @@ $('#settings').addEventListener('click', showSearch);
 $('#exif').addEventListener('click', showExif);
 
 
-function getCollections() {
-  fetch(`${endpoint}/me/?access_token=${accessToken}`, {
-    method: 'GET',
-  })
-  .then(blob => blob.json())
-  .then((me) => {
-    username = me.username;
+// function getCollections() {
+//   fetch(`${endpoint}/me/?access_token=${accessToken}`, {
+//     method: 'GET',
+//   })
+//   .then(blob => blob.json())
+//   .then((me) => {
+//     username = me.username;
+//
+//     fetch(`${endpoint}/users/${username}/collections/?access_token=${accessToken}`, {
+//       method: 'GET'
+//     })
+//       .then(blob => blob.json())
+//       .then((collections) => {
+//         window.myCollections = collections.map((collection, i) => {
+//           return collection.id;
+//         });
+//         $('#add + .popover ul').innerHTML = myCollections.map((collection, i) => {
+//           return `
+//             <li>
+//               <a href="#">${collection.id}</a>
+//             </li>
+//           `;
+//         }).join('');
+//       });
+//   });
+// }
+//
+// getCollections();
+//
+// function showCollections() {
+//   $('#add + .popover').classList.toggle('is-visible');
+// }
 
-    fetch(`${endpoint}/users/${username}/collections/?access_token=${accessToken}`, {
-      method: 'GET'
-    })
-      .then(blob => blob.json())
-      .then((collections) => {
-        window.myCollections = collections.map((collection, i) => {
-          return collection.id;
-        });
-        $('#add + .popover ul').innerHTML = myCollections.map((collection, i) => {
-          return `
-            <li>
-              <a href="#">${collection.id}</a>
-            </li>
-          `;
-        }).join('');
-      });
-  });
-}
 
-getCollections();
-
-function showCollections() {
-  $('#add + .popover').classList.toggle('is-visible');
-}
-
-
-function addToCollection() {
-  fetch(`${endpoint}/collections/${collectionID}/add/?photo_id=${photoId}&access_token=${accessToken}`, {
-    method: 'POST'
-  })
-  .then(() => {
-    $('#add').classList.add('added');
-  });
-}
+// function addToCollection() {
+//   fetch(`${endpoint}/collections/${collectionID}/add/?photo_id=${photoId}&access_token=${accessToken}`, {
+//     method: 'POST'
+//   })
+//   .then(() => {
+//     $('#add').classList.add('added');
+//   });
+// }
 
 function closePopOvers() {
-  $('.popover').classList.remove('is-visible');
+  $$('.popover').forEach((popover) => {
+    if (popover.classList.contains('is-visible')) {
+      popover.classList.remove('is-visible');
+    }
+  });
 }
 
-$('#add').addEventListener('click', showCollections);
+// $('#add').addEventListener('click', showCollections);
 
 $('main').addEventListener('click', closePopOvers);
-$('.button').addEventListener('click', closePopOvers);
+// $$('.button').forEach((button) => {
+//   button.addEventListener('click', closePopOvers);
+// });
 
 document.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {

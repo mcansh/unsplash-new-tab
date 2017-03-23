@@ -7,7 +7,7 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="description" content="Unofficial Unsplash extension for Google Chrome based on the Offical extension but with added features")
-    meta(name="author" content="Logan McAnsh")
+    link(type="text/plain" rel="author" href="/humans.txt")
     link(rel="stylesheet" href="assets/css/unsplash.css")
     link(rel="shortcut icon" href="/assets/img/icons/icon32.png" sizes="32x32")
 
@@ -29,29 +29,31 @@ html(lang="en")
     meta(name="twitter:description" content="Unsplash New Tab by @logansmcansh")
     meta(name="twitter:image" content="/assets/img/icons/icon228.png")
   body
+    div(style="height:0;width:0;position:absolute;visibility:hidden")
+      include ./assets/img/sprite.svg
     header
       #logo
         a(href="https://unsplash.com")
           svg
-            use(xlink:href="/assets/img/sprite.svg#unsplash")
+            use(xlink:href="#unsplash")
 
       a.button#like(href="#")
         svg.icon-btn--like
-          use(xlink:href="/assets/img/sprite.svg#like-icon")
+          use(xlink:href="#like-icon")
         span
-      a.button#add(href="#")
+      //- a.button#add(href="#")
         svg
-          use(xlink:href="/assets/img/sprite.svg#plus")
-      .popover
+          use(xlink:href="#plus")
+      //- .popover
         ul
           li: a(href="#")
       a.button#download(download href="")
         svg
-          use(xlink:href="/assets/img/sprite.svg#download")
+          use(xlink:href="#download")
         span Download
       a.button#more(href="#")
         svg
-          use(xlink:href="/assets/img/sprite.svg#elipsis")
+          use(xlink:href="#elipsis")
       .popover
         ul
           li: a(href="https://github.com/mcansh/unsplash-new-tab" target="_blank") View Project on GitHub
@@ -79,7 +81,7 @@ html(lang="en")
           input#save(type="submit" value="Save")
         .button.not-a-button#exif
           svg
-            use(xlink:href="/assets/img/sprite.svg#info")
+            use(xlink:href="#info")
         .popover
           ul
             h4 Photo Information
@@ -87,5 +89,4 @@ html(lang="en")
             li.res
             li.downloads
 
-    //- script(async src="https://cdn.polyfill.io/v2/polyfill.min.js")
     script(async src='/assets/js/bundle.min.js')
