@@ -5,7 +5,7 @@ const nodeEnv = process.env.NODE_ENV || 'production';
 module.exports = {
   devtool: 'source-map',
   entry: {
-    filename: './source/assets/js/unsplash.js'
+    filename: './source/assets/js/main.js'
   },
   output: {
     filename: './source/assets/js/bundle.js'
