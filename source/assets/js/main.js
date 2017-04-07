@@ -14,7 +14,7 @@ const loginURL = `${oAuth}/authorize?client_id=${authToken}&redirect_uri=${redir
 
 const login = $('#login');
 const main = $('main'); // main event / background image
-const download = $('#download'); // download button
+const download = $('#download[download]'); // download button
 const viewOnUnsplash = $('#view'); // view on unsplash link
 const likePhoto = $('#like'); // like button
 const profile = $('#profile'); // user's profile picture
@@ -140,7 +140,7 @@ fetch(url, {
 
     viewOnUnsplash.href = data.links.html;
     profile.style.backgroundImage = `url(${data.user.profile_image.large})`;
-    download.href = data.links.download;
+    download.href = `https://unsplash.com/photos/${data.id}/download`;
     userName.href = data.user.links.html;
     userName.textContent = data.user.name;
     $('#like span').textContent = data.likes;
@@ -161,9 +161,9 @@ fetch(url, {
     }
     resolution.textContent = `Resolution: ${data.width}x${data.height}`;
     downloads.textContent = `Downloads: ${(data.downloads).toLocaleString()}`;
-    if (data.location !== null) {
-      photoLocation.textContent = data.user.location;
-      photoLocation.href = `https://unsplash.com/search/${data.user.location}`;
+    if (data.location) {
+      photoLocation.textContent = data.location.title;
+      photoLocation.href = `https://unsplash.com/search/${data.location.title}`;
     } else {
       photoLocation.remove();
     }
