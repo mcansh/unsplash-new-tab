@@ -74,7 +74,6 @@ if (location.search.length) {
 }
 
 function getPhotoStats() {
-  console.log(`getting like states for ${photoId}`);
   fetch(`${endpoint}/photos/${photoId}/stats?access_token=${accessToken}`, {
     method: 'GET',
     headers: {
@@ -84,6 +83,7 @@ function getPhotoStats() {
   })
     .then(blob => blob.json())
     .then((data) => {
+      console.log(data);
       $('#like span').textContent = data.likes;
     })
     .catch(err => console.error(err));
@@ -104,6 +104,7 @@ function likeThePhoto(event) {
     })
     .then(() => {
       likePhoto.classList.remove('liked');
+      getPhotoStats();
     })
     .catch(err => console.error(err));
   } else {
@@ -118,11 +119,10 @@ function likeThePhoto(event) {
     })
     .then(() => {
       likePhoto.classList.add('liked');
+      getPhotoStats();
     })
     .catch(err => console.error(err));
   }
-  getPhotoStats();
-  console.log(isLiked);
 }
 
 fetch(url, {
@@ -155,7 +155,6 @@ fetch(url, {
     } else {
       camera.remove();
     }
-    console.log(data.liked_by_user);
     if (data.liked_by_user === true) {
       isLiked = true;
       likePhoto.classList.add('liked');
