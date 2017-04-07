@@ -4,8 +4,8 @@ import { $, $$ } from './bling';
 import { authToken, applicationSecret } from './tokens';
 
 const endpoint = 'https://api.unsplash.com';
-const url = `${endpoint}/photos/random?count=1&collections=155105&client_id=${authToken}`; // unsplash instant collection
 let accessToken = window.atob(Cookies.get('accessToken') || 'bnVsbA=='); // get accessToken from cookie or else set as null (bnVsbA==)
+let url; // unsplash instant collection
 let photoId; // placeholder for the photo id which we'll get from the API
 let code; // placeholder for the login code which we'll get from unsplash when logging in
 const redirectURI = location.origin;
@@ -20,15 +20,17 @@ const likePhoto = $('#like'); // like button
 const profile = $('#profile'); // user's profile picture
 const userName = $('#name'); // user's username
 const photoLocation = $('#location'); // photo's location
-const camera = $('.make.model'); // photo's camera (make and model [make could be set twice])
+const camera = $('.make.model'); // photo's camera (make and model )
 const resolution = $('.res'); // photo's resolution
 const downloads = $('.downloads'); // how many times a photo has been downloaded
-let isLiked = false;
+let isLiked;
 
 if (accessToken === '' || accessToken === undefined || accessToken === 'null') {
   login.href = loginURL;
+  url = `${endpoint}/photos/random?count=1&collections=155105&client_id=${authToken}`;
 } else {
   login.parentElement.remove();
+  url = `${endpoint}/photos/random?count=1&collections=155105&client_id=${authToken}&access_token=${accessToken}`;
 }
 
 function logMeIn() {
@@ -143,13 +145,20 @@ fetch(url, {
     userName.textContent = data.user.name;
     $('#like span').textContent = data.likes;
     if (data.exif.model !== null) {
-      camera.textContent = `Camera: ${data.exif.model}`;
+      const make = data.exif.make;
+      const model = data.exif.model;
+      if (model.includes(make)) {
+        camera.textContent = `Camera: ${model}`;
+      } else {
+        camera.textContent = `Camera: ${make} ${model}`;
+      }
     } else {
       camera.remove();
     }
+    console.log(data.liked_by_user);
     if (data.liked_by_user === true) {
-      likePhoto.classList.add('liked');
       isLiked = true;
+      likePhoto.classList.add('liked');
     }
     resolution.textContent = `Resolution: ${data.width}x${data.height}`;
     downloads.textContent = `Downloads: ${(data.downloads).toLocaleString()}`;
