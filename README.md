@@ -1,8 +1,6 @@
 # custom-unsplash-new-tab
 
-remade the unsplash new tab chrome extension.
-
-mostly made for a blog post on Learn.co
+remade the unsplash new tab chrome extension. mostly to get experienced using fetch and api's.
 
 uses the fetch api which is currently available in Chrome and Safari (10.1+)[only chrome and opera can use the extension]
 
@@ -16,9 +14,9 @@ uses the fetch api which is currently available in Chrome and Safari (10.1+)[onl
 ## Development
 1. Clone/Fork the Repo
 
-2. install node modules: `$ npm --prefix ./source/assets/js install ./source/assets/js`
+2. install node modules: `$ yarn`
 
-3. run webpack: `$ npm run --prefix source/assets/js build`
+3. run webpack: `$ yarn build`
 
 4. you're now off to the races!
 

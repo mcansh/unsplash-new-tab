@@ -4,11 +4,11 @@ import { $, $$ } from './bling';
 import { authToken, applicationSecret } from './tokens';
 
 const endpoint = 'https://api.unsplash.com';
-let accessToken = window.atob(Cookies.get('accessToken') || 'bnVsbA=='); // get accessToken from cookie or else set as null (bnVsbA==)
-let url; // unsplash instant collection
+let accessToken = window.atob(Cookies.get('accessToken')); // get accessToken from cookie
+let url = `${endpoint}/photos/random?count=1&collections=155105&client_id=${authToken}`; // unsplash instant collection
 let photoId; // placeholder for the photo id which we'll get from the API
 let code; // placeholder for the login code which we'll get from unsplash when logging in
-const redirectURI = location.origin;
+const redirectURI = 'https://mcansh.github.io/unsplash-new-tab';
 const oAuth = 'https://unsplash.com/oauth';
 const loginURL = `${oAuth}/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes+read_collections+write_collections`; // url in which we'll use to login
 
@@ -23,14 +23,81 @@ const photoLocation = $('#location'); // photo's location
 const camera = $('.make.model'); // photo's camera (make and model )
 const resolution = $('.res'); // photo's resolution
 const downloads = $('.downloads'); // how many times a photo has been downloaded
+const searchQuery = Cookies.get('searchQuery');
+const searchUser = Cookies.get('searchUser');
 let isLiked;
+const currentUser = Cookies.get('currentUser');
+let myCollections;
 
-if (accessToken === '' || accessToken === undefined || accessToken === 'null') {
+
+function getCollections() {
+  fetch(`${endpoint}/users/${currentUser}/collections?client_id=${authToken}&access_token=${accessToken}`, {
+    method: 'GET'
+  })
+  .then(blob => blob.json())
+  .then((data) => {
+    if (data.length > 10) {
+      $('#collections ul').innerHTML += '<li>check console for info</li>';
+    }
+    data.forEach((collection) => {
+      $('#collections ul').innerHTML += `
+        <li>
+          <a data-collection="${collection.id}" href="#">${collection.title}</a>
+        </li>
+      `;
+    });
+    $$('#collections ul li a').forEach((collectionID) => {
+      collectionID.addEventListener('click', addToCollection);
+    });
+  })
+  .catch(err => console.error(err));
+}
+
+function getCurrentUser() {
+  fetch(`${endpoint}/me?client_id=${authToken}&access_token=${accessToken}`, {
+    method: 'GET'
+  })
+  .then(blob => blob.json())
+  .then((data) => {
+    Cookies.set('currentUser', data.username);
+    getCollections();
+  })
+  .catch(err => console.error(err));
+}
+
+function addToCollection(event) {
+  const collectionID = this.dataset.collection;
+  event.preventDefault();
+  fetch(`${endpoint}/collections/${collectionID}/add?photo_id=${photoId}&client_id=${authToken}&access_token=${accessToken}`, {
+    method: 'POST'
+  })
+  .then(blob => blob.json())
+  .then((data) => {
+    console.log(data);
+    $('#add').classList.add('added');
+  })
+  .catch(err => console.error(err));
+}
+
+if (accessToken === '' || accessToken === 'undefined') {
   login.href = loginURL;
-  url = `${endpoint}/photos/random?count=1&collections=155105&client_id=${authToken}`;
 } else {
+  getCurrentUser();
   login.parentElement.remove();
-  url = `${endpoint}/photos/random?count=1&collections=155105&client_id=${authToken}&access_token=${accessToken}`;
+  url += `&access_token=${accessToken}`;
+}
+
+if (searchQuery) {
+  console.log('found a query but not a user');
+  Cookies.remove(searchUser);
+  url += `&query=${searchQuery}`;
+} else if (searchUser) {
+  console.log('found a user but not a query');
+  url += `&username=${searchUser}`;
+  Cookies.remove(searchQuery);
+} else if (searchUser && searchQuery) {
+  console.log('found both a query and user');
+  url += `&query=${searchQuery}&username=${searchUser}`;
 }
 
 function logMeIn() {
@@ -39,13 +106,12 @@ function logMeIn() {
   })
   .then(data => data.json())
   .then((data) => {
+    console.log(data);
     accessToken = window.btoa(data.access_token);
     Cookies.set('accessToken', accessToken);
     location.href = redirectURI;
   })
-  .catch((err) => {
-    console.error(err);
-  });
+  .catch(err => console.error(err));
 }
 
 if (location.search.length) {
@@ -136,7 +202,7 @@ fetch(url, {
 
     photoId = data.id;
     main.style.backgroundColor = data.color;
-    main.style.backgroundImage = `url(${data.urls.regular})`;
+    main.style.backgroundImage = `url(${data.urls.full})`;
 
     viewOnUnsplash.href = data.links.html;
     profile.style.backgroundImage = `url(${data.user.profile_image.large})`;
@@ -144,7 +210,7 @@ fetch(url, {
     userName.href = data.user.links.html;
     userName.textContent = data.user.name;
     $('#like span').textContent = data.likes;
-    if (data.exif.model !== null) {
+    if (data.exif.model) {
       const make = data.exif.make;
       const model = data.exif.model;
       if (model.includes(make)) {
@@ -176,21 +242,40 @@ function closePopOvers() {
   });
 }
 
-function showMoreMenu(event) {
+function showMenu(event) {
   event.preventDefault();
   closePopOvers();
-  $('#more + .popover').classList.toggle('is-visible');
+  this.nextElementSibling.classList.toggle('is-visible');
 }
 
-$('#more').addEventListener('click', showMoreMenu);
+$$('.button.opener').forEach((button) => {
+  button.addEventListener('click', showMenu);
+});
 
 likePhoto.addEventListener('click', likeThePhoto);
+$('main').addEventListener('click', closePopOvers);
 
-function showExif(event) {
-  event.preventDefault();
-  closePopOvers();
-  $('#exif + .popover').classList.toggle('is-visible');
+function getQuery() {
+  const search = $('#query').value;
+  const user = $('#user').value;
+  console.log(searchUser);
+  console.log(search);
+  Cookies.set('searchQuery', search);
+  Cookies.set('searchUser', user);
+  location.reload();
 }
 
-$('#exif').addEventListener('click', showExif);
-$('main').addEventListener('click', closePopOvers);
+function fillQuery() {
+  const search = $('#query');
+  const user = $('#user');
+  user.value = searchUser;
+  search.value = searchQuery;
+}
+fillQuery();
+$('#save').addEventListener('click', getQuery);
+
+document.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    getQuery();
+  }
+});

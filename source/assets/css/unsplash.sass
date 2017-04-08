@@ -81,6 +81,7 @@ header
   &.not-a-button
     background: none
     margin: 0
+    box-shadow: none
 
 #add
   svg
@@ -115,7 +116,7 @@ header
   border-radius: 3px
   padding: 15px 20px
   text-align: right
-  background: rgba(black, 0.9)
+  background: black
   @supports (-webkit-backdrop-filter: none) and (backdrop-filter: none)
     -webkit-backdrop-filter: blur(10px)
     backdrop-filter: blur(10px)
@@ -135,7 +136,7 @@ header
   &::before
     position: absolute
     top: -5px
-    background: rgba(black, 0.9)
+    background: black
     right: 13px
     +size(10px)
     transform: rotate(45deg)
@@ -159,6 +160,11 @@ header
       display: block
       &:hover
         color: #999
+
+#add + .popover
+  right: 110px
+  &::before
+    right: 69px
 
 footer
   height: 4em
@@ -196,9 +202,8 @@ footer
     .button
       display: inline-block
 
-
   #exif + .popover
-    bottom: 4em
+    bottom: 4.5em
     top: auto
     &::before
       top: auto
@@ -208,13 +213,13 @@ footer
       margin-bottom: 15px
 
   #settings + .popover
-    bottom: 4em
+    bottom: 4.5em
     top: auto
     text-align: center
     &::before
       top: auto
       bottom: -5px
-      right: 61px
+      right: 70px
 
     label
       display: block

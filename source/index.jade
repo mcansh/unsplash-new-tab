@@ -41,16 +41,16 @@ html(lang="en")
         svg.icon-btn--like
           use(xlink:href="#like-icon")
         span
-      //- a.button#add(href="#")
+      a.button.opener#add(href="#")
         svg
           use(xlink:href="#plus")
-      //- .popover#collections
+      .popover#collections
         ul
       a.button#download(download href="")
         svg
           use(xlink:href="#download")
         span Download
-      a.button#more(href="")
+      a.button.opener#more(href="")
         svg
           use(xlink:href="#elipsis")
       .popover
@@ -69,16 +69,16 @@ html(lang="en")
         a#location(href="")
 
       .settings
-        //- a.button#settings(href="#")
+        a.button.opener#settings(href="#")
           span Filter
-        //- .popover
+        .popover
           h4 Filter the photos you see
           label(for="user") Username
           input#user(type="text" placeholder="Ex: mcansh")
           label(for="query") Query
           input#query(type="text" placeholder="Ex: coffee")
           input#save(type="submit" value="Save")
-        a.button.not-a-button#exif
+        a.button.not-a-button.opener#exif
           svg
             use(xlink:href="#info")
         .popover

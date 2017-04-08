@@ -37,10 +37,16 @@
           </svg></a></div><a id="like" href="" class="button">
         <svg class="icon-btn--like">
           <use xlink:href="#like-icon"></use>
-        </svg><span></span></a><a id="download" download href="" class="button">
+        </svg><span></span></a><a id="add" href="#" class="button opener">
+        <svg>
+          <use xlink:href="#plus"></use>
+        </svg></a>
+      <div id="collections" class="popover">
+        <ul></ul>
+      </div><a id="download" download href="" class="button">
         <svg>
           <use xlink:href="#download"></use>
-        </svg><span>Download</span></a><a id="more" href="" class="button">
+        </svg><span>Download</span></a><a id="more" href="" class="button opener">
         <svg>
           <use xlink:href="#elipsis"></use>
         </svg></a>
@@ -57,7 +63,15 @@
     <footer>
       <div id="profile" style="background-image: url()"></div>
       <div class="user-info"><a id="name" href=""></a><a id="location" href=""></a></div>
-      <div class="settings"><a id="exif" class="button not-a-button">
+      <div class="settings"><a id="settings" href="#" class="button opener"><span>Filter</span></a>
+        <div class="popover">
+          <h4>Filter the photos you see</h4>
+          <label for="user">Username</label>
+          <input id="user" type="text" placeholder="Ex: mcansh">
+          <label for="query">Query</label>
+          <input id="query" type="text" placeholder="Ex: coffee">
+          <input id="save" type="submit" value="Save">
+        </div><a id="exif" class="button not-a-button opener">
           <svg>
             <use xlink:href="#info"></use>
           </svg></a>
