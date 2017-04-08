@@ -1,6 +1,6 @@
 {
   "name": "unsplash-new-tab",
-  "version": "1.5.0",
+  "version": "2.4.1",
   "description": "remade the unsplash new tab chrome extension.",
   "main": "./source/assets/js/unsplash.js",
   "dependencies": {
@@ -8,10 +8,6 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-svgmin": "^1.2.3",
-    "gulp-svgstore": "^6.1.0",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.22.0",
@@ -20,11 +16,14 @@
     "eslint-config-airbnb": "^14.0.0",
     "eslint-config-airbnb-base": "^11.0.1",
     "eslint-plugin-import": "^2.2.0",
-    "webpack": "^2.2.1"
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-svgstore": "^6.1.0",
+    "webpack": "^2.3.3"
   },
   "scripts": {
-    "build": "webpack --progress --colors --watch",
-    "help": "webpack --display-error-details"
+    "build": "webpack --progress --colors --watch"
   },
   "author": "Logan McAnsh",
   "license": "ISC",
