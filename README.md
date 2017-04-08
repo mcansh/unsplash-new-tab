@@ -7,18 +7,18 @@ uses the fetch api which is currently available in Chrome and Safari (10.1+)[onl
 ## How to Install
 1. There are 2 ways of installing this chrome extension
 
-  1a. you grab it from the [webstore](https://chrome.google.com/webstore/detail/custom-unsplash-instant/jakkljefkjcncpdibfmogcbdhonbiplp)
+    1. you grab it from the [webstore](https://chrome.google.com/webstore/detail/custom-unsplash-instant/jakkljefkjcncpdibfmogcbdhonbiplp)
 
-  1b. or build from [source](https://github.com/mcansh/unsplash-new-tab/releases/latest)
+    2. or build from [source](https://github.com/mcansh/unsplash-new-tab/releases/latest)
 
 2. Open dev tools and go to the console
-  2a. type `document.cookie` and copy the accessToken=yourlongencodedaccesstokenhere (yours obviously wont be that)
+    1. type `document.cookie` and copy the accessToken=yourlongencodedaccesstokenhere (yours obviously wont be that)
 
-  2b. next go back to your new tab in chrome or opera and open the dev tools there.
+    2. next go back to your new tab in chrome or opera and open the dev tools there.
 
-  2c. type `document.cookie = 'accessToken=yourlongencodedaccesstokenhere'`
+    3. type `document.cookie = 'accessToken=yourlongencodedaccesstokenhere'`
 
-  2d. obviously not the best set up but alas.
+    4. obviously not the best set up but alas.
 
 ## Development
 1. Clone/Fork the Repo
