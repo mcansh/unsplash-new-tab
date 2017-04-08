@@ -8,8 +8,7 @@ let accessToken = window.atob(Cookies.get('accessToken') || 'bnVsbA=='); // get 
 let url = `${endpoint}/photos/random?count=1&collections=155105&client_id=${authToken}`; // unsplash instant collection
 let photoId; // placeholder for the photo id which we'll get from the API
 let code; // placeholder for the login code which we'll get from unsplash when logging in
-// const redirectURI = 'https://mcansh.github.io/unsplash-new-tab';
-const redirectURI = 'http://mcansh.local:5757';
+const redirectURI = 'https://mcansh.github.io/unsplash-new-tab';
 const oAuth = 'https://unsplash.com/oauth';
 const loginURL = `${oAuth}/authorize?client_id=${authToken}&redirect_uri=${redirectURI}&response_type=code&scope=public+read_user+write_likes+read_collections+write_collections`; // url in which we'll use to login
 
