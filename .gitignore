@@ -3,7 +3,7 @@
 *.css.map
 
 ### JavaScript ###
-*/tokens.js
+tokens.js
 *.js.map
 node_modules
 */npm-debug.log
