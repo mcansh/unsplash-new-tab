@@ -109,7 +109,6 @@ function logMeIn() {
     console.log(data);
     accessToken = window.btoa(data.access_token);
     Cookies.set('accessToken', accessToken);
-    location.href = redirectURI;
   })
   .catch(err => console.error(err));
 }
