@@ -1,10 +1,10 @@
 import 'whatwg-fetch';
-import * as Cookies from 'js-cookie';
 import { $, $$ } from './bling';
 import { authToken, applicationSecret } from './tokens';
+// think im going to rewrite using https://github.com/unsplash/unsplash-js
 
 const endpoint = 'https://api.unsplash.com';
-let accessToken = window.atob(Cookies.get('accessToken') || 'bnVsbA=='); // get accessToken from cookie
+let accessToken = window.atob(localStorage.getItem('accessToken')); // get accessToken from cookie
 let url = `${endpoint}/photos/random?count=1&collections=155105&client_id=${authToken}`; // unsplash instant collection
 let photoId; // placeholder for the photo id which we'll get from the API
 let code; // placeholder for the login code which we'll get from unsplash when logging in
@@ -23,11 +23,10 @@ const photoLocation = $('#location'); // photo's location
 const camera = $('.make.model'); // photo's camera (make and model )
 const resolution = $('.res'); // photo's resolution
 const downloads = $('.downloads'); // how many times a photo has been downloaded
-const searchQuery = Cookies.get('searchQuery');
-const searchUser = Cookies.get('searchUser');
+const searchQuery = localStorage.getItem('searchQuery');
+const searchUser = localStorage.getItem('searchUser');
 let isLiked;
-const currentUser = Cookies.get('currentUser');
-let myCollections;
+const currentUser = localStorage.getItem('currentUser');
 
 
 function getCollections() {
@@ -59,7 +58,7 @@ function getCurrentUser() {
   })
   .then(blob => blob.json())
   .then((data) => {
-    Cookies.set('currentUser', data.username);
+    localStorage.setItem('currentUser', data.username);
     getCollections();
   })
   .catch(err => console.error(err));
@@ -89,12 +88,12 @@ if (accessToken === '' || accessToken === 'undefined' || accessToken === 'null')
 
 if (searchQuery) {
   console.log('found a query but not a user');
-  Cookies.remove(searchUser);
+  localStorage.removeItem(searchUser);
   url += `&query=${searchQuery}`;
 } else if (searchUser) {
   console.log('found a user but not a query');
   url += `&username=${searchUser}`;
-  Cookies.remove(searchQuery);
+  localStorage.removeItem(searchQuery);
 } else if (searchUser && searchQuery) {
   console.log('found both a query and user');
   url += `&query=${searchQuery}&username=${searchUser}`;
@@ -108,7 +107,8 @@ function logMeIn() {
   .then((data) => {
     console.log(data);
     accessToken = window.btoa(data.access_token);
-    Cookies.set('accessToken', accessToken);
+    localStorage.setItem('accessToken', accessToken);
+    location.href = location.origin;
   })
   .catch(err => console.error(err));
 }
@@ -259,8 +259,8 @@ function getQuery() {
   const user = $('#user').value;
   console.log(searchUser);
   console.log(search);
-  Cookies.set('searchQuery', search);
-  Cookies.set('searchUser', user);
+  localStorage.setItem('searchQuery', search);
+  localStorage.setItem('searchUser', user);
   location.reload();
 }
 
