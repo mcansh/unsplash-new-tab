@@ -11,11 +11,14 @@ uses the fetch api which is currently available in Chrome and Safari (10.1+)[onl
 
     2. or build from [source](https://github.com/mcansh/unsplash-new-tab/releases/latest)
 
-2. Open the new tab extension directly
-  1. open dev tools and type `location.href`
-  2. copy and paste it into the omnibar
-3. Copy the `?code=youraccesstokenrequesthere` from the other page
-4. Paste it after `chrome-extension://chrome-extension-id-here/index.html[the code goes right here]`
+2. Open dev tools and go to the console
+    1. type `document.cookie` and copy the accessToken=yourlongencodedaccesstokenhere (yours obviously wont be that)
+
+    2. next go back to your new tab in chrome or opera and open the dev tools there.
+
+    3. type `document.cookie = 'accessToken=yourlongencodedaccesstokenhere'`
+
+    4. obviously not the best set up but alas.
 
 ## Development
 1. Clone/Fork the Repo
