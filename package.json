@@ -1,6 +1,6 @@
 {
   "name": "unsplash-new-tab",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "description": "remade the unsplash new tab chrome extension.",
   "main": "./source/assets/js/unsplash.js",
   "dependencies": {
