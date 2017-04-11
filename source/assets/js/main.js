@@ -4,7 +4,7 @@ import { authToken, applicationSecret } from './tokens';
 // think im going to rewrite using https://github.com/unsplash/unsplash-js
 
 const endpoint = 'https://api.unsplash.com';
-let accessToken = window.atob(localStorage.getItem('accessToken')); // get accessToken from cookie
+let accessToken = localStorage.getItem('accessToken') || undefined; // get accessToken from cookie
 let url = `${endpoint}/photos/random?count=1&collections=155105&client_id=${authToken}`; // unsplash instant collection
 let photoId; // placeholder for the photo id which we'll get from the API
 let code; // placeholder for the login code which we'll get from unsplash when logging in
@@ -78,7 +78,7 @@ function addToCollection(event) {
   .catch(err => console.error(err));
 }
 
-if (accessToken === '' || accessToken === 'undefined' || accessToken === 'null') {
+if (accessToken === '' || accessToken === undefined || accessToken === null) {
   login.href = loginURL;
 } else {
   getCurrentUser();
@@ -106,7 +106,7 @@ function logMeIn() {
   .then(data => data.json())
   .then((data) => {
     console.log(data);
-    accessToken = window.btoa(data.access_token);
+    accessToken = data.access_token;
     localStorage.setItem('accessToken', accessToken);
     location.href = redirectURI;
   })
