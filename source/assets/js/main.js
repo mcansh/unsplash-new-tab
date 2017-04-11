@@ -108,7 +108,7 @@ function logMeIn() {
     console.log(data);
     accessToken = window.btoa(data.access_token);
     localStorage.setItem('accessToken', accessToken);
-    location.href = location.origin;
+    location.href = redirectURI;
   })
   .catch(err => console.error(err));
 }
