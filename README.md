@@ -1,5 +1,7 @@
 # custom-unsplash-new-tab
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mcansh/unsplash-new-tab.svg)](https://greenkeeper.io/)
+
 remade the unsplash new tab chrome extension. mostly to get experienced using fetch and api's.
 
 uses the fetch api which is currently available in Chrome and Safari (10.1+)[only chrome and opera can use the extension]
