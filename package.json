@@ -8,18 +8,18 @@
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
+    "babel-loader": "^7.1.2",
     "babel-polyfill": "^6.22.0",
     "babel-preset-es2015-native-modules": "^6.9.4",
-    "eslint": "^3.13.1",
-    "eslint-config-airbnb": "^14.0.0",
-    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-svgmin": "^1.2.3",
     "gulp-svgstore": "^6.1.0",
-    "webpack": "^2.3.3"
+    "webpack": "^3.10.0"
   },
   "scripts": {
     "build": "webpack --progress --colors --watch"
