@@ -4,22 +4,22 @@
   "description": "remade the unsplash new tab chrome extension.",
   "main": "./source/assets/js/unsplash.js",
   "dependencies": {
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
-    "babel-core": "^6.22.1",
+    "babel-core": "^6.26.3",
     "babel-loader": "^6.2.10",
-    "babel-polyfill": "^6.22.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015-native-modules": "^6.9.4",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^14.0.0",
-    "eslint-config-airbnb-base": "^11.0.1",
-    "eslint-plugin-import": "^2.2.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.22.1",
     "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-svgmin": "^1.2.3",
-    "gulp-svgstore": "^6.1.0",
-    "webpack": "^2.3.3"
+    "gulp-rename": "^1.4.0",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-svgstore": "^6.1.1",
+    "webpack": "^2.7.0"
   },
   "scripts": {
     "build": "webpack --progress --colors --watch"
